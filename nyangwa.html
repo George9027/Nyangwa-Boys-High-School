@@ -1,0 +1,3721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <title>Nyangwa Boys High School | Complete Portal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+        /* ─── GLOBAL VARIABLES & RESET ─── */
+        :root {
+            --bg-body: #f0f4f8;
+            --bg-card: #ffffff;
+            --text-primary: #0b2a3a;
+            --text-secondary: #2a4a5a;
+            --accent: #0f3b5c;
+            --accent-light: #2a7a9a;
+            --accent-gold: #c9a020;
+            --accent-teal: #1a9a8a;
+            --border-color: #d0dce4;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
+            --radius: 24px;
+            --font-family: 'Poppins', sans-serif;
+            --font-size-base: 16px;
+            --transition: 0.3s ease;
+        }
+
+        /* High Contrast */
+        body.high-contrast {
+            --bg-body: #000;
+            --bg-card: #1a1a1a;
+            --text-primary: #fff;
+            --text-secondary: #ddd;
+            --border-color: #555;
+            --shadow: none;
+        }
+        body.high-contrast .cover-section,
+        body.high-contrast .about-section,
+        body.high-contrast .gallery-section {
+            background: #111 !important;
+        }
+        body.high-contrast .cover-section .section-card,
+        body.high-contrast .about-card,
+        body.high-contrast .gallery-item,
+        body.high-contrast .card {
+            background: #222 !important;
+            border-color: #666 !important;
+        }
+        body.high-contrast .cover-title,
+        body.high-contrast .cover-sub,
+        body.high-contrast .cover-description,
+        body.high-contrast .cover-motto {
+            color: #fff !important;
+        }
+        body.high-contrast .cover-btn {
+            background: #fff;
+            color: #000;
+        }
+        body.high-contrast .login-left {
+            background: #111 !important;
+        }
+        body.high-contrast .login-right {
+            background: #1a1a1a !important;
+        }
+        body.high-contrast .login-right h2,
+        body.high-contrast .login-right label {
+            color: #fff !important;
+        }
+        body.high-contrast .login-right input {
+            background: #222;
+            color: #fff;
+            border-color: #555;
+        }
+
+        /* Dark Mode */
+        body.dark-mode {
+            --bg-body: #0d1b2a;
+            --bg-card: #1b2b3a;
+            --text-primary: #e8f0f8;
+            --text-secondary: #b0c8d8;
+            --border-color: #2a4050;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+        body.dark-mode .cover-section,
+        body.dark-mode .about-section,
+        body.dark-mode .gallery-section {
+            background: #0d1b2a !important;
+        }
+        body.dark-mode .cover-section .section-card,
+        body.dark-mode .about-card,
+        body.dark-mode .gallery-item,
+        body.dark-mode .card {
+            background: #1b2b3a !important;
+            border-color: #2a4050 !important;
+        }
+        body.dark-mode .login-left {
+            background: #0a1a2a !important;
+        }
+        body.dark-mode .login-right {
+            background: #1b2b3a !important;
+        }
+        body.dark-mode .login-right h2,
+        body.dark-mode .login-right label {
+            color: #e8f0f8;
+        }
+        body.dark-mode .login-right input {
+            background: #0d1b2a;
+            color: #fff;
+            border-color: #2a4050;
+        }
+        body.dark-mode .role-selector {
+            background: #0d1b2a;
+        }
+        body.dark-mode .role-selector label {
+            color: #e8f0f8;
+        }
+        body.dark-mode .admin-note {
+            background: #1a2a3a;
+            color: #c0d0d8;
+        }
+        body.dark-mode .sidebar {
+            background: #1b2b3a;
+            border-color: #2a4050;
+        }
+        body.dark-mode .nav-item {
+            color: #b0c8d8;
+        }
+        body.dark-mode .nav-item.active,
+        body.dark-mode .nav-item:hover {
+            background: #2a4050;
+            color: #fff;
+        }
+        body.dark-mode .footer-credit {
+            background: #0d1b2a;
+            color: #6a8a9a;
+        }
+        body.dark-mode .term-balance-item {
+            background: #0d1b2a;
+        }
+        body.dark-mode .term-balance-item.current {
+            background: rgba(201, 160, 32, 0.15);
+            border-color: var(--accent-gold);
+        }
+
+        /* Font families */
+        body.font-serif {
+            --font-family: 'Georgia', 'Times New Roman', serif;
+        }
+        body.font-monospace {
+            --font-family: 'Courier New', monospace;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-family);
+        }
+        html {
+            font-size: var(--font-size-base);
+            scroll-behavior: smooth;
+        }
+        body {
+            background: var(--bg-body);
+            min-height: 100vh;
+            color: var(--text-primary);
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        /* ─── ACCESSIBILITY BUTTON + COLLAPSIBLE TOOLBAR ─── */
+        .access-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10001;
+            width: 48px;
+            height: 48px;
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            box-shadow: 0 4px 18px rgba(0,0,0,.18);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: .2s;
+        }
+        .access-toggle:hover, .access-toggle.active {
+            background: var(--accent-gold);
+            color: #1a2a3a;
+            transform: scale(1.05);
+        }
+        .access-toolbar {
+            position: fixed;
+            bottom: 78px;
+            right: 20px;
+            z-index: 10000;
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: var(--bg-card);
+            padding: 8px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.18);
+            border: 1px solid var(--border-color);
+            transition: background 0.3s;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        .access-toolbar.open { display: flex; }
+        .access-toolbar button {
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 4px 8px;
+            border-radius: 30px;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+        .access-toolbar button:hover {
+            background: var(--accent-gold);
+            color: #1a2a3a;
+        }
+        .access-toolbar .sep {
+            height: 1px;
+            background: var(--border-color);
+            margin: 2px 0;
+        }
+        .access-toolbar .tool-label {
+            font-size: 0.5rem;
+            text-align: center;
+            color: var(--text-secondary);
+            letter-spacing: 0.3px;
+        }
+        .access-toolbar i {
+            font-size: 0.85rem;
+        }
+        @media (max-width: 640px) {
+            .access-toolbar {
+                flex-direction: row;
+                flex-wrap: wrap;
+                bottom: 12px;
+                right: 12px;
+                padding: 6px 10px;
+                border-radius: 30px;
+                max-width: 92vw;
+                justify-content: center;
+                gap: 2px;
+            }
+            .access-toolbar .tool-label {
+                display: none;
+            }
+            .access-toolbar button {
+                font-size: 0.75rem;
+                padding: 3px 6px;
+            }
+            .access-toolbar .sep {
+                display: none;
+            }
+        }
+
+        /* ─── COVER PAGE ─── */
+        .cover-page {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            overflow: hidden;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            background: #0a0a0a;
+        }
+        .cover-page.hidden {
+            opacity: 0;
+            transform: scale(0.97);
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+        }
+
+        .carousel-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.6s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            background-color: #0d1b2a;
+        }
+        .carousel-slide.active {
+            opacity: 1;
+        }
+        .carousel-slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1;
+        }
+        .slide-caption {
+            position: absolute;
+            bottom: 110px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 6px 28px;
+            border-radius: 40px;
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            white-space: nowrap;
+            font-weight: 400;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+        }
+        .carousel-indicators {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            gap: 12px;
+        }
+        .carousel-indicators .dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: 0.3s;
+            border: 2px solid transparent;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .carousel-indicators .dot.active {
+            background: var(--accent-gold);
+            transform: scale(1.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        .cover-credit {
+            position: absolute;
+            bottom: 16px;
+            right: 28px;
+            z-index: 3;
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 0.6rem;
+            letter-spacing: 0.5px;
+            font-weight: 300;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        .cover-credit strong {
+            color: var(--accent-gold);
+        }
+        .cover-credit i {
+            color: var(--accent-gold);
+            margin: 0 4px;
+        }
+
+        .cover-content-wrapper {
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 30px;
+            text-align: center;
+            color: #fff;
+        }
+        .cover-content-inner {
+            max-width: 820px;
+            width: 100%;
+            animation: coverFadeIn 1.6s ease forwards;
+        }
+        @keyframes coverFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0.97);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .cover-logo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #fff;
+            padding: 6px;
+            border: 4px solid var(--accent-gold);
+            box-shadow: 0 12px 50px rgba(201, 160, 32, 0.3);
+            margin-bottom: 16px;
+            transition: transform 0.4s;
+        }
+        .cover-logo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Uniform shake for the title (all characters shake together) */
+        .shake-char {
+            display: inline-block;
+            animation: shakeUniform 0.8s infinite ease-in-out;
+        }
+        @keyframes shakeUniform {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            20% { transform: translateX(-3px) rotate(-2deg); }
+            40% { transform: translateX(3px) rotate(2deg); }
+            60% { transform: translateX(-3px) rotate(-2deg); }
+            80% { transform: translateX(3px) rotate(2deg); }
+        }
+
+        .cover-title {
+            font-weight: 900;
+            font-size: 3.6rem;
+            color: #fff;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 6px;
+            text-shadow: 0 4px 40px rgba(0, 0, 0, 0.7);
+        }
+        .cover-title .highlight {
+            color: var(--accent-gold);
+        }
+        .cover-sub {
+            font-weight: 300;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+        .cover-motto {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 14px;
+            border-top: 2px solid var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
+            padding: 12px 28px;
+            display: inline-block;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 40px;
+        }
+        .cover-motto i {
+            color: var(--accent-gold);
+            margin: 0 8px;
+        }
+        .cover-description {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 680px;
+            margin: 6px auto 24px;
+            line-height: 1.8;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+            font-weight: 300;
+            letter-spacing: 0.3px;
+        }
+        .cover-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--accent-gold);
+            color: #1a2a3a;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.15rem;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 8px 40px rgba(201, 160, 32, 0.4);
+            margin-top: 4px;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 5;
+        }
+        .cover-btn:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 14px 55px rgba(201, 160, 32, 0.55);
+            background: #e0b020;
+        }
+        .cover-btn i {
+            transition: transform 0.3s;
+        }
+        .cover-btn:hover i {
+            transform: translateX(6px);
+        }
+
+        .cover-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 5px 24px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        /* ─── COVER SECTIONS (vertical pages) ─── */
+        .cover-section {
+            position: relative;
+            z-index: 2;
+            background: var(--bg-body);
+            padding: 60px 40px;
+            border-top: 1px solid var(--border-color);
+            transition: background 0.3s;
+            scroll-margin-top: 20px;
+        }
+        .cover-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .cover-section h2 {
+            font-weight: 700;
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .cover-section .section-sub {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+        .section-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 28px 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+        }
+        .section-card .icon {
+            font-size: 2.6rem;
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+            display: block;
+        }
+        .section-card h4 {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .section-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .assoc-club-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 24px;
+        }
+        .assoc-club-item {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+        .assoc-club-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        .assoc-club-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            background: #e5ece8;
+        }
+        .assoc-club-item .info {
+            padding: 12px 14px 16px;
+            text-align: center;
+        }
+        .assoc-club-item .info .name {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+        .assoc-club-item .info .desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+        .assoc-club-item .admin-actions {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            display: flex;
+            gap: 6px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .assoc-club-item:hover .admin-actions {
+            opacity: 1;
+        }
+        .assoc-club-item .admin-actions button {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            border: none;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 0.7rem;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .assoc-club-item .admin-actions button:hover {
+            background: #c0392b;
+            transform: scale(1.1);
+        }
+
+        .about-section,
+        .gallery-section {
+            padding: 60px 40px;
+            position: relative;
+            z-index: 2;
+            background: var(--bg-body);
+            border-top: 1px solid var(--border-color);
+            scroll-margin-top: 20px;
+        }
+        .about-section .container,
+        .gallery-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .about-section h2,
+        .gallery-section h2 {
+            font-weight: 700;
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 28px;
+        }
+        .about-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 28px 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            text-align: center;
+        }
+        .about-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06);
+        }
+        .about-card .icon {
+            font-size: 2.2rem;
+            color: var(--accent-gold);
+            margin-bottom: 12px;
+            display: block;
+        }
+        .about-card h4 {
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .about-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .gallery-item {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            position: relative;
+        }
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            background: #f0f5f2;
+        }
+        .gallery-item .gallery-info {
+            padding: 14px 18px 18px;
+        }
+        .gallery-item .gallery-info .caption {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            margin-bottom: 2px;
+        }
+        .gallery-item .gallery-info .date {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+        }
+        .gallery-item .gallery-actions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 6px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .gallery-item:hover .gallery-actions {
+            opacity: 1;
+        }
+        .gallery-item .gallery-actions button {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(4px);
+            border: none;
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gallery-item .gallery-actions button:hover {
+            background: #c0392b;
+            transform: scale(1.1);
+        }
+        .gallery-empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-secondary);
+            grid-column: 1/-1;
+        }
+        .gallery-empty i {
+            font-size: 3.6rem;
+            color: var(--border-color);
+            margin-bottom: 16px;
+            display: block;
+        }
+        .gallery-admin-bar {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn-sm {
+            padding: 10px 28px;
+            font-size: 0.9rem;
+            border-radius: 40px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        .btn-sm.primary {
+            background: var(--accent-gold);
+            color: #1a2a3a;
+        }
+        .btn-sm.primary:hover {
+            background: #e0b020;
+            transform: translateY(-2px);
+        }
+        .btn-sm.outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1.5px solid var(--text-primary);
+        }
+        .btn-sm.outline:hover {
+            background: var(--border-color);
+        }
+        .btn-sm.danger {
+            background: #c0392b;
+            color: #fff;
+        }
+        .btn-sm.danger:hover {
+            background: #a93226;
+        }
+        .btn-sm.success {
+            background: #27ae60;
+            color: #fff;
+        }
+        .btn-sm.success:hover {
+            background: #1e8449;
+        }
+        .btn-sm.pay {
+            background: var(--accent-teal);
+            color: #fff;
+        }
+        .btn-sm.pay:hover {
+            background: #16a085;
+        }
+
+        .cover-footer {
+            background: #0a0a0a;
+            padding: 24px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            position: relative;
+            z-index: 2;
+        }
+        .cover-footer p {
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            font-weight: 300;
+        }
+        .cover-footer p strong {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+        .cover-footer p i {
+            color: var(--accent-gold);
+            margin: 0 4px;
+        }
+
+        /* ─── LOGIN PANEL ─── */
+        .login-panel {
+            display: none;
+            flex-wrap: wrap;
+            min-height: 600px;
+            transition: opacity 0.6s ease;
+            background: var(--bg-card);
+        }
+        .login-left {
+            flex: 1.2;
+            background: linear-gradient(145deg, #0a0a0a 0%, #0d1b2a 40%, #1a2a3a 70%, #0a0a0a 100%);
+            padding: 48px 40px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        .login-left .login-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .login-left .login-logo img {
+            max-width: 110px;
+            max-height: 110px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #fff;
+            padding: 5px;
+            border: 3px solid var(--accent-gold);
+        }
+        .login-left h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .login-left .tag {
+            text-align: center;
+            font-size: 1rem;
+            opacity: 0.8;
+            margin: 4px 0;
+        }
+        .login-left .copy {
+            margin-top: 60px;
+            font-size: 0.8rem;
+            opacity: 0.4;
+            text-align: center;
+        }
+        .login-right {
+            flex: 1;
+            padding: 48px 40px;
+            background: var(--bg-card);
+            transition: background 0.3s;
+        }
+        .login-right h2 {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1.8rem;
+            margin-bottom: 4px;
+        }
+        .login-right .sub {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+        }
+        .role-selector {
+            display: flex;
+            gap: 12px;
+            margin: 14px 0 20px;
+            background: var(--bg-body);
+            padding: 6px 16px;
+            border-radius: 60px;
+            width: fit-content;
+            flex-wrap: wrap;
+            transition: background 0.3s;
+        }
+        .role-selector label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 4px 10px;
+            border-radius: 30px;
+            transition: 0.2s;
+            font-size: 0.9rem;
+        }
+        .role-selector label:hover {
+            background: rgba(201, 160, 32, 0.12);
+        }
+        .role-selector input[type="radio"] {
+            accent-color: var(--accent-gold);
+            width: 16px;
+            height: 16px;
+        }
+        .input-group {
+            margin-bottom: 18px;
+        }
+        .input-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            font-size: 1rem;
+            transition: 0.2s;
+            background: var(--bg-body);
+            color: var(--text-primary);
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(201, 160, 32, 0.15);
+        }
+        .signin-btn {
+            background: var(--accent-gold);
+            color: #1a2a3a;
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 40px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 1.05rem;
+            transition: 0.2s;
+            margin-top: 4px;
+        }
+        .signin-btn:hover {
+            background: #e0b020;
+            transform: scale(1.01);
+        }
+        .admin-note {
+            background: rgba(201, 160, 32, 0.08);
+            border-radius: 20px;
+            padding: 14px 18px;
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            border-left: 4px solid var(--accent-gold);
+            line-height: 1.6;
+        }
+        .admin-note strong {
+            color: var(--text-primary);
+        }
+
+        /* ─── DASHBOARD ─── */
+        .dashboard-container {
+            display: none;
+            background: var(--bg-body);
+            transition: background 0.3s;
+        }
+        .dash-layout {
+            display: flex;
+            min-height: 85vh;
+        }
+        .sidebar {
+            width: 270px;
+            background: var(--bg-card);
+            border-right: 1px solid var(--border-color);
+            padding: 24px 0;
+            flex-shrink: 0;
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .school-header {
+            padding: 0 20px 20px 20px;
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+        .school-logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 2px solid var(--border-color);
+            background: #f9f5f0;
+        }
+        .school-header h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .school-header p {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+        .nav-items {
+            padding: 12px 0;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 11px 22px;
+            margin: 3px 12px;
+            border-radius: 40px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: 0.2s;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .nav-item.active,
+        .nav-item:hover {
+            background: var(--accent-gold);
+            color: #1a2a3a;
+        }
+        .logout-item {
+            color: #c0392b;
+            margin-top: 32px;
+        }
+        .logout-item:hover {
+            background: #fce8e3 !important;
+            color: #a1442a !important;
+        }
+        .content-area {
+            flex: 1;
+            padding: 28px 32px;
+            overflow-y: auto;
+            max-height: 85vh;
+        }
+        .card {
+            background: var(--bg-card);
+            border-radius: 28px;
+            padding: 20px 24px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 22px;
+            box-shadow: var(--shadow);
+            transition: background 0.3s, border-color 0.3s;
+        }
+        .card h3 {
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th,
+        td {
+            text-align: left;
+            padding: 10px 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+        td {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+        .points-badge {
+            background: var(--accent-gold);
+            color: #1a2a3a;
+            border-radius: 40px;
+            padding: 3px 12px;
+            font-weight: 700;
+            display: inline-block;
+            font-size: 0.75rem;
+        }
+        .term-tag {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: #1a2a3a;
+            border-radius: 30px;
+            padding: 2px 14px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        .term-balance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-top: 8px;
+        }
+        .term-balance-item {
+            background: var(--bg-body);
+            border-radius: 16px;
+            padding: 12px 14px;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        .term-balance-item .term-label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+        .term-balance-item .term-amount {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .term-balance-item.current {
+            border: 2px solid var(--accent-gold);
+            background: rgba(201, 160, 32, 0.08);
+        }
+        .term-balance-item.credit {
+            border: 2px solid #27ae60;
+            background: rgba(39, 174, 96, 0.08);
+        }
+        .term-balance-item .credit-badge {
+            font-size: 0.55rem;
+            background: #27ae60;
+            color: #fff;
+            border-radius: 30px;
+            padding: 1px 10px;
+            display: inline-block;
+            margin-top: 2px;
+        }
+        .pop-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 6px 0;
+        }
+        .pop-stats .stat-badge {
+            background: var(--bg-body);
+            border-radius: 40px;
+            padding: 8px 18px;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+        .pop-stats .stat-badge .num {
+            color: var(--accent-gold);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .subject-tag {
+            display: inline-block;
+            background: var(--bg-body);
+            color: var(--text-primary);
+            border-radius: 30px;
+            padding: 3px 14px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin: 2px 4px 2px 0;
+        }
+        .subject-tag .dept {
+            font-size: 0.6rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+        .action-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .child-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 10px;
+        }
+        .child-summary .summary-item {
+            background: var(--bg-body);
+            border-radius: 16px;
+            padding: 12px 16px;
+            text-align: center;
+        }
+        .child-summary .summary-item .label {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .child-summary .summary-item .value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .child-summary .summary-item .value.gold {
+            color: var(--accent-gold);
+        }
+        .child-summary .summary-item .value.green {
+            color: #27ae60;
+        }
+        .child-summary .summary-item .value.blue {
+            color: var(--accent-light);
+        }
+        .parent-child-card {
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 16px;
+            margin-top: 12px;
+        }
+        .footer-credit {
+            text-align: center;
+            padding: 10px 16px;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-body);
+            letter-spacing: 0.5px;
+            transition: background 0.3s;
+        }
+        .footer-credit strong {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+        .footer-credit i {
+            color: var(--accent-gold);
+            margin: 0 4px;
+        }
+
+        /* ─── MODAL ─── */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.25s ease;
+            padding: 20px;
+        }
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .modal-content {
+            background: var(--bg-card);
+            max-width: 750px;
+            width: 100%;
+            border-radius: 32px;
+            padding: 32px 28px;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            transition: background 0.3s;
+        }
+        .modal-content h3 {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 14px;
+            font-size: 1.5rem;
+        }
+        .modal-content label {
+            display: block;
+            font-weight: 600;
+            margin: 14px 0 4px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+        .modal-content input,
+        .modal-content select,
+        .modal-content textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            font-size: 1rem;
+            transition: 0.2s;
+            background: var(--bg-body);
+            color: var(--text-primary);
+        }
+        .modal-content input:focus,
+        .modal-content select:focus,
+        .modal-content textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(201, 160, 32, 0.12);
+        }
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 22px;
+            flex-wrap: wrap;
+        }
+        .modal-actions .btn-sm {
+            flex: 1;
+            justify-content: center;
+            min-width: 100px;
+            padding: 12px 24px;
+            border-radius: 40px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .modal-actions .btn-sm.primary {
+            background: var(--accent-gold);
+            color: #1a2a3a;
+        }
+        .modal-actions .btn-sm.primary:hover {
+            background: #e0b020;
+        }
+        .modal-actions .btn-sm.outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1.5px solid var(--border-color);
+        }
+        .modal-actions .btn-sm.outline:hover {
+            background: var(--border-color);
+        }
+        .image-upload-area {
+            border: 2px dashed var(--border-color);
+            border-radius: 20px;
+            padding: 28px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            background: var(--bg-body);
+        }
+        .image-upload-area:hover {
+            border-color: var(--accent-gold);
+            background: rgba(201, 160, 32, 0.04);
+        }
+        .image-upload-area input[type="file"] {
+            display: none;
+        }
+        .image-upload-area .upload-icon {
+            font-size: 2.6rem;
+            color: var(--text-secondary);
+            display: block;
+            margin-bottom: 6px;
+        }
+        .image-upload-area .upload-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .image-upload-preview {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin: 8px 0 12px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-body);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 850px) {
+            .cover-title {
+                font-size: 2.6rem;
+            }
+            .cover-sub {
+                font-size: 1rem;
+                letter-spacing: 3px;
+            }
+            .cover-logo {
+                width: 130px;
+                height: 130px;
+            }
+            .cover-btn {
+                padding: 14px 36px;
+                font-size: 1rem;
+            }
+            .cover-section,
+            .about-section,
+            .gallery-section {
+                padding: 40px 20px;
+            }
+            .section-grid,
+            .about-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .dash-layout {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                overflow-x: auto;
+                padding: 16px 0;
+            }
+            .nav-items {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4px;
+                padding: 0 12px;
+                justify-content: center;
+            }
+            .nav-item {
+                padding: 8px 14px;
+                margin: 2px 4px;
+                font-size: 0.8rem;
+            }
+            .school-header {
+                padding: 0 16px 16px 16px;
+            }
+            .school-header h2 {
+                font-size: 1rem;
+            }
+            .content-area {
+                padding: 16px 14px;
+                max-height: none;
+            }
+            .login-left,
+            .login-right {
+                padding: 28px 20px;
+            }
+            .login-left h1 {
+                font-size: 1.6rem;
+            }
+            .carousel-indicators .dot {
+                width: 11px;
+                height: 11px;
+            }
+            .slide-caption {
+                bottom: 80px;
+                font-size: 0.65rem;
+                padding: 4px 16px;
+            }
+            .assoc-club-grid {
+                grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            }
+        }
+        @media (max-width: 550px) {
+            .cover-title {
+                font-size: 1.8rem;
+            }
+            .cover-sub {
+                font-size: 0.7rem;
+                letter-spacing: 2px;
+            }
+            .cover-logo {
+                width: 100px;
+                height: 100px;
+            }
+            .cover-btn {
+                padding: 12px 28px;
+                font-size: 0.85rem;
+                gap: 10px;
+            }
+            .section-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-item img {
+                height: 180px;
+            }
+            .cover-section h2,
+            .about-section h2,
+            .gallery-section h2 {
+                font-size: 1.5rem;
+            }
+            .modal-content {
+                padding: 18px 14px;
+            }
+            .modal-actions .btn-sm {
+                flex: 1 1 100%;
+            }
+            .role-selector {
+                width: 100%;
+                justify-content: center;
+            }
+            .child-summary {
+                grid-template-columns: 1fr;
+            }
+            .assoc-club-grid {
+                grid-template-columns: 1fr;
+            }
+            .term-balance-grid {
+                grid-template-columns: 1fr;
+            }
+            .login-left .copy {
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ═══════════════ ACCESSIBILITY BUTTON + TOOLBAR ═══════════════ -->
+    <button class="access-toggle" id="accessToggle" title="Accessibility options" aria-label="Open accessibility options" aria-expanded="false">
+        <i class="fas fa-universal-access"></i>
+    </button>
+    <div class="access-toolbar" id="accessToolbar" aria-hidden="true">
+        <button id="toggleContrast" title="Toggle High Contrast"><i class="fas fa-adjust"></i> <span class="tool-label">Contrast</span></button>
+        <button id="toggleFont" title="Change Font"><i class="fas fa-font"></i> <span class="tool-label">Font</span></button>
+        <button id="toggleTheme" title="Light/Dark Mode"><i class="fas fa-moon"></i> <span class="tool-label">Theme</span></button>
+        <div class="sep"></div>
+        <button id="decreaseText" title="Decrease Text Size"><i class="fas fa-search-minus"></i></button>
+        <button id="increaseText" title="Increase Text Size"><i class="fas fa-search-plus"></i></button>
+        <button id="resetText" title="Reset Text Size"><i class="fas fa-undo"></i></button>
+        <div class="sep"></div>
+        <button id="resetAccessibility" title="Reset All Accessibility Settings"><i class="fas fa-redo-alt"></i></button>
+    </div>
+
+    <div class="app-container">
+
+        <!-- ═══════════════ COVER PAGE ═══════════════ -->
+        <div class="cover-page" id="coverPage">
+            <div class="carousel-container" id="carouselContainer"></div>
+            <div class="carousel-indicators" id="carouselIndicators"></div>
+            <div class="cover-credit"><i class="fas fa-code"></i> by <strong>George Mulinge</strong> &nbsp;·&nbsp; ABNO Softwares</div>
+
+            <div class="cover-content-wrapper">
+                <div class="cover-content-inner">
+                    <div class="cover-badge"><i class="fas fa-graduation-cap"></i> &nbsp;Est. 2026 · Sponsored by ACK Good Samaritan</div>
+                    <img id="coverLogoImg" class="cover-logo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%230f3b5c'/%3E%3Ctext x='50' y='67' font-size='40' text-anchor='middle' fill='%23c9a020' font-weight='bold'%3ENG%3C/text%3E%3C/svg%3E" alt="School Logo" />
+                    <h1 class="cover-title" id="coverTitle"></h1>
+                    <div class="cover-sub" id="coverSubtitle">Learn With Determination · Serve With Dedication</div>
+                    <div class="cover-motto" id="coverMotto"><i class="fas fa-quote-left"></i> Learn With Determination, Serve With Dedication <i class="fas fa-quote-right"></i></div>
+                    <p class="cover-description" id="coverDescription">Nyangwa Boys High School, sponsored by ACK Good Samaritan, is a center of academic excellence, character development, and holistic growth. We nurture young men to become leaders of integrity, equipped with knowledge and skills for a dynamic world.</p>
+                    <button class="cover-btn" id="enterPortalBtn"><span>Enter Portal</span><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <!-- ASSOCIATIONS (vertical page) -->
+            <div class="cover-section" id="associationsSection">
+                <div class="container">
+                    <h2 id="associationsTitle">🤝 Associations</h2>
+                    <p class="section-sub" id="associationsSub">Faith and community groups that shape our character</p>
+                    <div class="assoc-club-grid" id="associationsGrid"></div>
+                </div>
+            </div>
+
+            <!-- CLUBS (vertical page) -->
+            <div class="cover-section" style="background:var(--bg-card);" id="clubsSection">
+                <div class="container">
+                    <h2 id="clubsTitle">🏕️ Clubs & Societies</h2>
+                    <p class="section-sub" id="clubsSub">Co-curricular activities that build skills and friendships</p>
+                    <div class="assoc-club-grid" id="clubsGrid"></div>
+                </div>
+            </div>
+
+            <!-- COMMUNITY -->
+            <div class="cover-section" id="communitySection">
+                <div class="container">
+                    <h2 id="communityTitle">Our Community</h2>
+                    <p class="section-sub" id="communitySub">A family of learners, teachers, and supporters</p>
+                    <div class="section-grid" id="communityGrid"></div>
+                </div>
+            </div>
+
+            <!-- VIRTUAL TOUR -->
+            <div class="cover-section" style="background:var(--bg-card);" id="virtualTourSection">
+                <div class="container">
+                    <h2 id="virtualTourTitle">Virtual Tour</h2>
+                    <p class="section-sub" id="virtualTourSub">Explore our campus from anywhere</p>
+                    <div class="section-grid" id="virtualTourGrid"></div>
+                </div>
+            </div>
+
+            <!-- PARTNERSHIPS -->
+            <div class="cover-section" id="partnershipsSection">
+                <div class="container">
+                    <h2 id="partnershipsTitle">Partnerships</h2>
+                    <p class="section-sub" id="partnershipsSub">Collaborating for a brighter future</p>
+                    <div class="section-grid" id="partnershipsGrid"></div>
+                </div>
+            </div>
+
+            <!-- ACTIONS -->
+            <div class="cover-section" style="background:var(--bg-card);" id="actionsSection">
+                <div class="container">
+                    <h2 id="actionsTitle">Take the Next Step</h2>
+                    <p class="section-sub" id="actionsSub">Start your journey with us today</p>
+                    <div class="section-grid" id="actionsGrid"></div>
+                </div>
+            </div>
+
+            <!-- ABOUT -->
+            <div class="about-section" id="aboutSection">
+                <div class="container">
+                    <h2>About Our School</h2>
+                    <p class="section-sub">Excellence in education, character, and service</p>
+                    <div class="about-grid">
+                        <div class="about-card"><span class="icon"><i class="fas fa-bullseye"></i></span><h4>Our Mission</h4><p>To provide quality education that develops disciplined, responsible, and innovative young men who are prepared for higher education and service to society.</p></div>
+                        <div class="about-card"><span class="icon"><i class="fas fa-eye"></i></span><h4>Our Vision</h4><p>To be a center of academic excellence and character formation, producing graduates who are leaders of integrity and agents of positive change in their communities.</p></div>
+                        <div class="about-card"><span class="icon"><i class="fas fa-heart"></i></span><h4>Core Values</h4><p><strong>Integrity</strong> · <strong>Discipline</strong> · <strong>Excellence</strong> · <strong>Respect</strong> · <strong>Service</strong> — values that define every Nyangwa Boy.</p></div>
+                        <div class="about-card"><span class="icon"><i class="fas fa-users"></i></span><h4>Our Community</h4><p>Nyangwa Boys is a family of dedicated teachers, supportive parents, and motivated students working together to build a brighter future for our nation.</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GALLERY -->
+            <div class="gallery-section" id="gallerySection">
+                <div class="container">
+                    <h2>📸 School Gallery</h2>
+                    <p class="section-sub">Moments that define our journey — academics, sports, and co-curricular life</p>
+                    <div class="gallery-admin-bar" id="galleryAdminBar" style="display:none;">
+                        <button class="btn-sm primary" id="addGalleryImageBtn"><i class="fas fa-plus"></i> Add Image</button>
+                        <button class="btn-sm outline" id="refreshGalleryBtn"><i class="fas fa-sync-alt"></i> Refresh</button>
+                        <span style="font-size:0.8rem; color:var(--text-secondary); display:flex; align-items:center;"><i class="fas fa-info-circle"></i> Hover over images to delete</span>
+                    </div>
+                    <div class="gallery-grid" id="coverGalleryGrid"></div>
+                </div>
+            </div>
+
+            <section class="about-section" id="sponsorSection">
+                <div class="container">
+                    <h2><i class="fas fa-hands-helping" style="color:var(--accent-gold);"></i> Our Sponsor</h2>
+                    <p class="section-sub">Supporting the school community</p>
+                    <div class="about-grid"><div class="about-card" style="grid-column:1/-1;">
+                        <img id="sponsorImage" src="" alt="ACK Good Samaritan" style="display:none;width:180px;height:180px;object-fit:contain;border-radius:20px;margin:0 auto 18px;border:1px solid var(--border-color);padding:10px;" />
+                        <h4 id="sponsorName">ACK Good Samaritan</h4><p id="sponsorDescription">Nyangwa Boys High School is sponsored by ACK Good Samaritan.</p>
+                    </div></div>
+                </div>
+            </section>
+
+            <div class="cover-footer">
+                <p><i class="fas fa-code"></i> Created with <i class="fas fa-heart" style="color:#e74c3c;"></i> by <strong>George Mulinge</strong> &nbsp;·&nbsp; ABNO Softwares International &nbsp;·&nbsp; <i class="fas fa-phone"></i> 0701762213 &nbsp;·&nbsp; © 2026 Nyangwa Boys High School</p>
+            </div>
+        </div>
+
+        <!-- ═══════════════ LOGIN PANEL ═══════════════ -->
+        <div id="loginContainer" class="login-panel" style="display:none;">
+            <div class="login-left" id="loginLeftPanel">
+                <div class="login-logo"><img id="loginLogoImg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%230f3b5c'/%3E%3Ctext x='50' y='67' font-size='40' text-anchor='middle' fill='%23c9a020' font-weight='bold'%3ENG%3C/text%3E%3C/svg%3E" alt="Logo" /></div>
+                <h1 id="loginSchoolName">Nyangwa Boys<br />High School</h1>
+                <div class="tag" id="loginSchoolMotto">Learn With Determination, Serve With Dedication</div>
+                <div class="copy">&copy; 2026 — Smart Campus Portal</div>
+            </div>
+            <div class="login-right">
+                <h2>Welcome Back</h2>
+                <p class="sub">Sign in to access your portal</p>
+                <div class="role-selector">
+                    <label><input type="radio" name="loginRole" value="student" checked /> 👩‍🎓 Student</label>
+                    <label><input type="radio" name="loginRole" value="parent" /> 👨‍👩‍👦 Parent</label>
+                    <label><input type="radio" name="loginRole" value="staff" /> 👨‍🏫 Staff</label>
+                    <label><input type="radio" name="loginRole" value="admin" /> 👩‍💼 Admin</label>
+                </div>
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="loginUsername" placeholder="Student ID, Parent ID, Staff ID, or 'admin'" />
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" placeholder="Password" />
+                </div>
+                <button class="signin-btn" id="signinBtn">Sign In</button>
+                <div class="admin-note"><strong>Secure access:</strong> Credentials are created by the administrator. Do not share them.</div>
+            </div>
+        </div>
+
+        <!-- ═══════════════ DASHBOARD ═══════════════ -->
+        <div id="dashboardContainer" class="dashboard-container">
+            <div class="dash-layout">
+                <div class="sidebar">
+                    <div class="school-header">
+                        <img id="sidebarLogo" class="school-logo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%230f3b5c'/%3E%3Ctext x='50' y='67' font-size='40' text-anchor='middle' fill='%23c9a020' font-weight='bold'%3ENG%3C/text%3E%3C/svg%3E" alt="Logo" />
+                        <h2 id="schoolNameDisplay">Nyangwa Boys High School</h2>
+                        <p id="schoolMottoDisplay">Learn With Determination, Serve With Dedication</p>
+                    </div>
+                    <div class="nav-items" id="dynamicNav"></div>
+                    <div class="nav-item logout-item" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</div>
+                </div>
+                <div class="content-area" id="mainContent"></div>
+            </div>
+            <div class="footer-credit"><i class="fas fa-code"></i> Created with <i class="fas fa-heart" style="color:#e74c3c;"></i> by <strong>George Mulinge</strong> <i class="fas fa-phone"></i> 0701762213 &nbsp;·&nbsp; ABNO Softwares International &nbsp;·&nbsp; © 2026</div>
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div id="globalModal" class="modal-overlay">
+        <div class="modal-content" id="modalInner"></div>
+    </div>
+
+    <script>
+        // ─── ACCESSIBILITY TOOLBAR ─────────────────────────────────────────────
+        (function() {
+            const body = document.body;
+            const storage = localStorage;
+            const accessToggle = document.getElementById('accessToggle');
+            const accessToolbar = document.getElementById('accessToolbar');
+
+            function closeAccessibility() {
+                accessToolbar.classList.remove('open');
+                accessToolbar.setAttribute('aria-hidden', 'true');
+                accessToggle.classList.remove('active');
+                accessToggle.setAttribute('aria-expanded', 'false');
+            }
+
+            accessToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const open = accessToolbar.classList.toggle('open');
+                accessToolbar.setAttribute('aria-hidden', String(!open));
+                accessToggle.classList.toggle('active', open);
+                accessToggle.setAttribute('aria-expanded', String(open));
+            });
+
+            document.addEventListener('click', function(e) {
+                if (!accessToolbar.contains(e.target) && !accessToggle.contains(e.target)) closeAccessibility();
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeAccessibility();
+            });
+
+            function loadPrefs() {
+                if (storage.getItem('ac_contrast') === 'high') body.classList.add('high-contrast');
+                if (storage.getItem('ac_font') === 'serif') body.classList.add('font-serif');
+                if (storage.getItem('ac_font') === 'monospace') body.classList.add('font-monospace');
+                if (storage.getItem('ac_theme') === 'dark') body.classList.add('dark-mode');
+                const size = parseInt(storage.getItem('ac_textSize')) || 16;
+                document.documentElement.style.fontSize = size + 'px';
+            }
+            loadPrefs();
+
+            document.getElementById('toggleContrast').addEventListener('click', function() {
+                body.classList.toggle('high-contrast');
+                storage.setItem('ac_contrast', body.classList.contains('high-contrast') ? 'high' : 'normal');
+            });
+
+            let fontIdx = 0;
+            const fonts = ['sans-serif', 'serif', 'monospace'];
+            document.getElementById('toggleFont').addEventListener('click', function() {
+                body.classList.remove('font-serif', 'font-monospace');
+                fontIdx = (fontIdx + 1) % 3;
+                if (fonts[fontIdx] === 'serif') body.classList.add('font-serif');
+                else if (fonts[fontIdx] === 'monospace') body.classList.add('font-monospace');
+                storage.setItem('ac_font', fonts[fontIdx]);
+            });
+
+            document.getElementById('toggleTheme').addEventListener('click', function() {
+                body.classList.toggle('dark-mode');
+                storage.setItem('ac_theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+                const icon = this.querySelector('i');
+                icon.className = body.classList.contains('dark-mode') ? 'fas fa-sun' : 'fas fa-moon';
+            });
+            if (body.classList.contains('dark-mode')) {
+                document.querySelector('#toggleTheme i').className = 'fas fa-sun';
+            }
+
+            document.getElementById('increaseText').addEventListener('click', function() {
+                let size = parseInt(getComputedStyle(document.documentElement).fontSize) || 16;
+                size = Math.min(28, size + 2);
+                document.documentElement.style.fontSize = size + 'px';
+                storage.setItem('ac_textSize', size);
+            });
+            document.getElementById('decreaseText').addEventListener('click', function() {
+                let size = parseInt(getComputedStyle(document.documentElement).fontSize) || 16;
+                size = Math.max(12, size - 2);
+                document.documentElement.style.fontSize = size + 'px';
+                storage.setItem('ac_textSize', size);
+            });
+            document.getElementById('resetText').addEventListener('click', function() {
+                document.documentElement.style.fontSize = '16px';
+                storage.setItem('ac_textSize', 16);
+            });
+
+            document.getElementById('resetAccessibility').addEventListener('click', function() {
+                body.classList.remove('high-contrast', 'font-serif', 'font-monospace', 'dark-mode');
+                document.documentElement.style.fontSize = '16px';
+                storage.removeItem('ac_contrast');
+                storage.removeItem('ac_font');
+                storage.removeItem('ac_theme');
+                storage.removeItem('ac_textSize');
+                document.querySelector('#toggleTheme i').className = 'fas fa-moon';
+                loadPrefs();
+            });
+        })();
+
+        // ─── TERMS SYSTEM ──────────────────────────────────────────────────────
+        const TERM_DEFS = [
+            { id: 'term1', label: 'Term 1', order: 1 },
+            { id: 'term2', label: 'Term 2', order: 2 },
+            { id: 'term3', label: 'Term 3', order: 3 }
+        ];
+        let currentTermId = 'term1';
+
+        function loadCurrentTerm() {
+            const saved = localStorage.getItem('nyangwa_current_term');
+            if (saved && TERM_DEFS.some(t => t.id === saved)) currentTermId = saved;
+            else { currentTermId = 'term1';
+                localStorage.setItem('nyangwa_current_term', currentTermId); }
+        }
+
+        function saveCurrentTerm() { localStorage.setItem('nyangwa_current_term', currentTermId); }
+
+        function getNextTermId(termId) {
+            const idx = TERM_DEFS.findIndex(t => t.id === termId);
+            if (idx === -1) return 'term1';
+            if (idx === TERM_DEFS.length - 1) return 'term1';
+            return TERM_DEFS[idx + 1].id;
+        }
+
+        function getTermLabel(termId) { const t = TERM_DEFS.find(t => t.id === termId); return t ? t.label : termId; }
+
+        // ─── GRADING SYSTEMS ──────────────────────────────────────────────────
+        const DEFAULT_GRADING_SYSTEMS = {
+            formOne: {
+                name: "Form One Grading",
+                grades: [
+                    { grade: "A", minScore: 70, maxScore: 100, points: 12 },
+                    { grade: "A-", minScore: 65, maxScore: 69, points: 11 },
+                    { grade: "B+", minScore: 60, maxScore: 64, points: 10 },
+                    { grade: "B", minScore: 55, maxScore: 59, points: 9 },
+                    { grade: "B-", minScore: 50, maxScore: 54, points: 8 },
+                    { grade: "C+", minScore: 45, maxScore: 49, points: 7 },
+                    { grade: "C", minScore: 40, maxScore: 44, points: 6 },
+                    { grade: "C-", minScore: 35, maxScore: 39, points: 5 },
+                    { grade: "D+", minScore: 30, maxScore: 34, points: 4 },
+                    { grade: "D", minScore: 25, maxScore: 29, points: 3 },
+                    { grade: "D-", minScore: 20, maxScore: 24, points: 2 },
+                    { grade: "E", minScore: 0, maxScore: 19, points: 1 }
+                ]
+            },
+            formTwoFour: {
+                name: "Forms 2-4 Grading",
+                grades: [
+                    { grade: "A", minScore: 80, maxScore: 100, points: 12 },
+                    { grade: "A-", minScore: 75, maxScore: 79, points: 11 },
+                    { grade: "B+", minScore: 70, maxScore: 74, points: 10 },
+                    { grade: "B", minScore: 65, maxScore: 69, points: 9 },
+                    { grade: "B-", minScore: 60, maxScore: 64, points: 8 },
+                    { grade: "C+", minScore: 55, maxScore: 59, points: 7 },
+                    { grade: "C", minScore: 50, maxScore: 54, points: 6 },
+                    { grade: "C-", minScore: 45, maxScore: 49, points: 5 },
+                    { grade: "D+", minScore: 40, maxScore: 44, points: 4 },
+                    { grade: "D", minScore: 35, maxScore: 39, points: 3 },
+                    { grade: "D-", minScore: 30, maxScore: 34, points: 2 },
+                    { grade: "E", minScore: 0, maxScore: 29, points: 1 }
+                ]
+            }
+        };
+        let gradingSystems = {};
+
+        function loadGradingSystems() {
+            const saved = localStorage.getItem("nyangwa_grading_systems");
+            if (saved) { try { const parsed = JSON.parse(saved); if (parsed.formOne && parsed.formTwoFour) { gradingSystems =
+                        parsed; return; } } catch (e) {} }
+            gradingSystems = JSON.parse(JSON.stringify(DEFAULT_GRADING_SYSTEMS));
+            localStorage.setItem("nyangwa_grading_systems", JSON.stringify(gradingSystems));
+        }
+
+        function saveGradingSystems() { localStorage.setItem("nyangwa_grading_systems", JSON.stringify(gradingSystems)); }
+
+        function getGradingSystemForForm(form) { return form === 1 ? gradingSystems.formOne : gradingSystems.formTwoFour; }
+
+        function getGradeInfoFromScore(score, form) {
+            const system = getGradingSystemForForm(form);
+            if (!system || !system.grades) return { grade: "E", points: 1 };
+            const sorted = [...system.grades].sort((a, b) => b.minScore - a.minScore);
+            for (let g of sorted) { if (score >= g.minScore && score <= g.maxScore) return { grade: g.grade, points: g.points }; }
+            const lowest = system.grades.reduce((a, b) => a.minScore < b.minScore ? a : b);
+            return { grade: lowest.grade, points: lowest.points };
+        }
+
+        function getPointsFromGrade(grade, form) {
+            const system = getGradingSystemForForm(form);
+            if (!system || !system.grades) return 0;
+            const found = system.grades.find(g => g.grade === grade);
+            return found ? found.points : 0;
+        }
+
+        function getGradingSystemName(form) { const system = getGradingSystemForForm(form); return system ? system.name :
+                "Unknown"; }
+
+        // ─── STUDENTS DATA ────────────────────────────────────────────────────
+        let students = [];
+
+        function getDefaultStudents() {
+            return [{
+                id: "NY9028",
+                name: "Ali Osman",
+                form: 2,
+                progress: 89,
+                assignedSubjects: ["MATH401", "ENG402", "KIS404", "CHEM406", "BIO405", "PHY407", "COMP412", "BUS411"],
+                termBalances: { term1: 1500, term2: 0, term3: 0 },
+                transactions: [
+                    { date: "2026-01-15", desc: "Term 1 Fees", amount: -15000, balanceAfter: 1500, term: 'term1' },
+                    { date: "2026-01-05", desc: "Deposit", amount: -20000, balanceAfter: 46500, term: 'term1' }
+                ],
+                grades: [
+                    { form: 2, term: "Term 1", subjectCode: "MATH401", score: 78, grade: "B+", points: 10 },
+                    { form: 2, term: "Term 1", subjectCode: "ENG402", score: 85, grade: "A-", points: 11 },
+                    { form: 2, term: "Term 1", subjectCode: "KIS404", score: 88, grade: "A-", points: 11 },
+                    { form: 2, term: "Term 1", subjectCode: "CHEM406", score: 71, grade: "B", points: 9 },
+                    { form: 2, term: "Term 1", subjectCode: "BIO405", score: 64, grade: "C+", points: 7 },
+                    { form: 2, term: "Term 1", subjectCode: "PHY407", score: 82, grade: "A-", points: 11 },
+                    { form: 2, term: "Term 1", subjectCode: "COMP412", score: 91, grade: "A", points: 12 },
+                    { form: 2, term: "Term 1", subjectCode: "BUS411", score: 74, grade: "B", points: 9 }
+                ]
+            }, {
+                id: "NY9027",
+                name: "Mulinge George Mbithi",
+                form: 1,
+                progress: 75,
+                assignedSubjects: ["MATH401", "ENG402", "KIS404", "CHEM406", "BIO405", "PHY407", "HIST408", "GEO409",
+                    "BUS411", "COMP412", "AGR413", "FREN415", "MUS417"
+                ],
+                termBalances: { term1: 2500, term2: 0, term3: 0 },
+                transactions: [
+                    { date: "2026-02-01", desc: "Registration", amount: -15000, balanceAfter: 2500, term: 'term1' }
+                ],
+                grades: [
+                    { form: 1, term: "Term 1", subjectCode: "MATH401", score: 82, grade: "A-", points: 11 },
+                    { form: 1, term: "Term 1", subjectCode: "ENG402", score: 79, grade: "B+", points: 10 },
+                    { form: 1, term: "Term 1", subjectCode: "KIS404", score: 85, grade: "A-", points: 11 },
+                    { form: 1, term: "Term 1", subjectCode: "CHEM406", score: 74, grade: "B", points: 9 },
+                    { form: 1, term: "Term 1", subjectCode: "BIO405", score: 81, grade: "A-", points: 11 },
+                    { form: 1, term: "Term 1", subjectCode: "PHY407", score: 76, grade: "B+", points: 10 },
+                    { form: 1, term: "Term 1", subjectCode: "HIST408", score: 88, grade: "A-", points: 11 },
+                    { form: 1, term: "Term 1", subjectCode: "GEO409", score: 72, grade: "B", points: 9 },
+                    { form: 1, term: "Term 1", subjectCode: "BUS411", score: 68, grade: "B-", points: 8 },
+                    { form: 1, term: "Term 1", subjectCode: "COMP412", score: 92, grade: "A", points: 12 },
+                    { form: 1, term: "Term 1", subjectCode: "AGR413", score: 70, grade: "B", points: 9 },
+                    { form: 1, term: "Term 1", subjectCode: "FREN415", score: 77, grade: "B+", points: 10 },
+                    { form: 1, term: "Term 1", subjectCode: "MUS417", score: 85, grade: "A-", points: 11 }
+                ]
+            }];
+        }
+
+        function loadStudents() {
+            const saved = localStorage.getItem('nyangwa_students');
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        parsed.forEach(s => {
+                            if (!s.termBalances) s.termBalances = { term1: 0, term2: 0, term3: 0 };
+                            if (!s.transactions) s.transactions = [];
+                            if (!s.grades) s.grades = [];
+                            if (!s.assignedSubjects) s.assignedSubjects = [];
+                        });
+                        students = parsed;
+                        return;
+                    }
+                } catch (e) {}
+            }
+            students = getDefaultStudents();
+            localStorage.setItem('nyangwa_students', JSON.stringify(students));
+        }
+
+        function saveStudents() {
+            localStorage.setItem('nyangwa_students', JSON.stringify(students));
+            generateParentsAndStaff();
+        }
+
+        function getStudentCurrentBalance(student) { return student.termBalances[currentTermId] || 0; }
+
+        function getStudentTermBalance(student, termId) { return student.termBalances[termId] || 0; }
+
+        function getTotalSchoolPopulation() { return students.length; }
+
+        function getPopulationPerForm() {
+            const counts = { 1: 0, 2: 0, 3: 0, 4: 0 };
+            students.forEach(s => { if (s.form >= 1 && s.form <= 4) counts[s.form]++; });
+            return counts;
+        }
+
+        // ─── PARENTS & STAFF ──────────────────────────────────────────────────
+        let parents = [];
+        let staff = [];
+
+        function generateParentsAndStaff() {
+            const newParents = [];
+            students.forEach(s => {
+                const pUsername = 'parent_' + s.id;
+                if (!parents.find(p => p.username === pUsername)) {
+                    newParents.push({
+                        id: 'p_' + s.id,
+                        username: pUsername,
+                        password: '',
+                        name: 'Parent of ' + s.name,
+                        studentIds: [s.id]
+                    });
+                }
+            });
+            // Preserve existing parent accounts/passwords and only create missing accounts.
+            parents = parents.concat(newParents.filter(p => !parents.find(x => x.username === p.username)));
+            localStorage.setItem('nyangwa_parents', JSON.stringify(parents));
+
+            if (!Array.isArray(staff)) staff=[]; localStorage.setItem('nyangwa_staff', JSON.stringify(staff));
+        }
+
+        function loadParents() {
+            const saved = localStorage.getItem('nyangwa_parents');
+            if (saved) try { parents = JSON.parse(saved); } catch (e) {}
+            if (!parents.length) generateParentsAndStaff();
+        }
+
+        function loadStaff() {
+            const saved = localStorage.getItem('nyangwa_staff');
+            if (saved) try { staff = JSON.parse(saved); } catch (e) {}
+            if (!staff.length) generateParentsAndStaff();
+        }
+
+        function findParentByUsername(username) { return parents.find(p => p.username.toLowerCase() === username.toLowerCase()); }
+
+        function getStudentsForParent(parent) { return students.filter(s => parent.studentIds.includes(s.id)); }
+
+        function findStaffByUsername(username) { return staff.find(s => s.username.toLowerCase() === username.toLowerCase()); }
+
+        // ─── SUBJECTS ─────────────────────────────────────────────────────────
+        let allSubjects = [
+            { code: "MATH401", name: "Mathematics", department: "Sciences" },
+            { code: "ENG402", name: "English", department: "Languages" },
+            { code: "KIS404", name: "Kiswahili", department: "Languages" },
+            { code: "CHEM406", name: "Chemistry", department: "Sciences" },
+            { code: "BIO405", name: "Biology", department: "Sciences" },
+            { code: "PHY407", name: "Physics", department: "Sciences" },
+            { code: "HIST408", name: "History", department: "Humanities" },
+            { code: "GEO409", name: "Geography", department: "Humanities" },
+            { code: "BUS411", name: "Business Studies", department: "Business" },
+            { code: "COMP412", name: "Computer Science", department: "Technology" },
+            { code: "AGR413", name: "Agriculture", department: "Applied" },
+            { code: "FREN415", name: "French", department: "Languages" },
+            { code: "MUS417", name: "Music", department: "Creative" }
+        ];
+
+        function loadSubjects() {
+            const saved = localStorage.getItem('nyangwa_subjects');
+            if (saved) try { const parsed = JSON.parse(saved); if (Array.isArray(parsed) && parsed.length > 0) { allSubjects =
+                        parsed; return; } } catch (e) {}
+            localStorage.setItem('nyangwa_subjects', JSON.stringify(allSubjects));
+        }
+
+        function saveSubjects() { localStorage.setItem('nyangwa_subjects', JSON.stringify(allSubjects)); }
+
+        // ─── COVER SECTIONS ──────────────────────────────────────────────────
+        let coverSections = {};
+
+        function getDefaultCoverSections() {
+            return {
+                community: {
+                    title: "Our Community",
+                    subtitle: "A family of learners, teachers, and supporters",
+                    cards: [
+                        { icon: "fa-users", title: "Inclusive Environment",
+                            description: "We welcome students from all backgrounds, fostering a culture of respect and unity." },
+                        { icon: "fa-hand-holding-heart", title: "Parent Involvement",
+                            description: "Parents are our partners in shaping the future of our boys through active engagement." },
+                        { icon: "fa-chalkboard-teacher", title: "Dedicated Staff",
+                            description: "Our teachers are passionate about education and committed to each student's success." }
+                    ]
+                },
+                virtualTour: {
+                    title: "Virtual Tour",
+                    subtitle: "Explore our campus from anywhere",
+                    cards: [
+                        { icon: "fa-school", title: "Classrooms & Labs",
+                            description: "State-of-the-art facilities designed for interactive and practical learning." },
+                        { icon: "fa-running", title: "Sports Facilities",
+                            description: "Well-maintained fields, courts, and gymnasium for holistic development." },
+                        { icon: "fa-book", title: "Library & Resource Centre",
+                            description: "A quiet space for research, reading, and collaborative study." }
+                    ]
+                },
+                partnerships: {
+                    title: "Partnerships",
+                    subtitle: "Collaborating for a brighter future",
+                    cards: [
+                        { icon: "fa-university", title: "Higher Education Links",
+                            description: "Partnerships with universities for scholarships and mentorship programs." },
+                        { icon: "fa-building", title: "Corporate Partners",
+                            description: "Local and international companies offering internship and career opportunities." },
+                        { icon: "fa-globe", title: "Community Outreach",
+                            description: "Working with NGOs and community groups to create positive impact." }
+                    ]
+                },
+                actions: {
+                    title: "Take the Next Step",
+                    subtitle: "Start your journey with us today",
+                    cards: [
+                        { icon: "fa-pencil-alt", title: "Apply Now",
+                            description: "Submit your application online and join our family.", link: "#apply" },
+                        { icon: "fa-coins", title: "Fee Structure",
+                            description: "Transparent and affordable fees with flexible payment plans.", link: "#fees" },
+                        { icon: "fa-graduation-cap", title: "Our Programmes",
+                            description: "Explore our academic and co-curricular programmes.", link: "#programmes" }
+                    ]
+                }
+            };
+        }
+
+        function loadCoverSections() {
+            const saved = localStorage.getItem("nyangwa_cover_sections");
+            if (saved) {
+                try {
+                    const parsed = JSON.parse(saved);
+                    const defaults = getDefaultCoverSections();
+                    for (let key in defaults) {
+                        if (!parsed[key]) parsed[key] = defaults[key];
+                        if (!parsed[key].cards || parsed[key].cards.length === 0) parsed[key].cards = defaults[key].cards;
+                    }
+                    coverSections = parsed;
+                    return;
+                } catch (e) {}
+            }
+            coverSections = getDefaultCoverSections();
+            localStorage.setItem("nyangwa_cover_sections", JSON.stringify(coverSections));
+        }
+
+        function saveCoverSections() { localStorage.setItem("nyangwa_cover_sections", JSON.stringify(coverSections)); }
+
+        function renderCoverSections() {
+            renderSection('community', 'communitySection', 'communityGrid', 'communityTitle', 'communitySub');
+            renderSection('virtualTour', 'virtualTourSection', 'virtualTourGrid', 'virtualTourTitle', 'virtualTourSub');
+            renderSection('partnerships', 'partnershipsSection', 'partnershipsGrid', 'partnershipsTitle', 'partnershipsSub');
+            renderActions();
+        }
+
+        function renderSection(key, sectionId, gridId, titleId, subId) {
+            const data = coverSections[key];
+            if (!data) return;
+            document.getElementById(titleId).textContent = data.title;
+            document.getElementById(subId).textContent = data.subtitle;
+            const grid = document.getElementById(gridId);
+            if (!grid) return;
+            let html = '';
+            data.cards.forEach(card => {
+                html += `<div class="section-card"><span class="icon"><i class="fas ${card.icon}"></i></span><h4>${card.title}</h4><p>${card.description}</p></div>`;
+            });
+            grid.innerHTML = html;
+        }
+
+        function renderActions() {
+            const data = coverSections.actions;
+            if (!data) return;
+            document.getElementById('actionsTitle').textContent = data.title;
+            document.getElementById('actionsSub').textContent = data.subtitle;
+            const grid = document.getElementById('actionsGrid');
+            if (!grid) return;
+            let html = '';
+            data.cards.forEach(card => {
+                html += `<div class="section-card"><span class="icon"><i class="fas ${card.icon}"></i></span><h4>${card.title}</h4><p>${card.description}</p><a href="${card.link || '#'}" class="btn-sm" style="margin-top:12px;">Learn More</a></div>`;
+            });
+            grid.innerHTML = html;
+        }
+
+        // ─── COVER HERO SETTINGS ─────────────────────────────────────────────
+        let coverSettings = {
+            title: "Nyangwa Boys High School",
+            subtitle: "Learn With Determination · Serve With Dedication",
+            motto: "Learn With Determination, Serve With Dedication",
+            description: "Nyangwa Boys High School, sponsored by ACK Good Samaritan, is a center of academic excellence, character development, and holistic growth. We nurture young men to become leaders of integrity, equipped with knowledge and skills for a dynamic world."
+        };
+
+        function loadCoverSettings() {
+            const saved = localStorage.getItem("nyangwa_cover_settings");
+            if (saved) try { const parsed = JSON.parse(saved);
+                    coverSettings = { ...coverSettings, ...parsed }; } catch (e) {}
+            applyCoverSettings();
+        }
+
+        function saveCoverSettings(settings) {
+            coverSettings = { ...coverSettings, ...settings };
+            localStorage.setItem("nyangwa_cover_settings", JSON.stringify(coverSettings));
+            applyCoverSettings();
+        }
+
+        function applyCoverSettings() {
+            const titleEl = document.getElementById('coverTitle');
+            if (titleEl) {
+                const chars = coverSettings.title.split('');
+                // Uniform shake: all characters get the same class with no delay
+                titleEl.innerHTML = chars.map(ch => ch === ' ' ? ' ' :
+                    `<span class="shake-char" style="display:inline-block;">${ch}</span>`).join('');
+            }
+            document.getElementById('coverSubtitle').textContent = coverSettings.subtitle;
+            const mottoEl = document.getElementById('coverMotto');
+            if (mottoEl) mottoEl.innerHTML =
+                `<i class="fas fa-quote-left"></i> ${coverSettings.motto} <i class="fas fa-quote-right"></i>`;
+            document.getElementById('coverDescription').textContent = coverSettings.description;
+            document.getElementById('coverLogoImg').src = schoolProfile.logo;
+        }
+
+        // ─── CAROUSEL ─────────────────────────────────────────────────────────
+        let carouselImages = [];
+
+        function getDefaultCarouselImages() {
+            return [
+                { id: 'c1', label: '🏫 Nyangwa Boys High School Campus',
+                    dataUrl: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=1400&h=500&fit=crop&crop=center' },
+                { id: 'c2', label: '📚 Students in Class',
+                    dataUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1400&h=500&fit=crop&crop=center' },
+                { id: 'c3', label: '🎓 Graduation Ceremony',
+                    dataUrl: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=1400&h=500&fit=crop&crop=center' },
+                { id: 'c4', label: '⚽ Sports & Team Spirit',
+                    dataUrl: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1400&h=500&fit=crop&crop=center' },
+                { id: 'c5', label: '🏆 Prize Giving Day',
+                    dataUrl: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1400&h=500&fit=crop&crop=center' }
+            ];
+        }
+
+        function loadCarouselImages() {
+            const saved = localStorage.getItem("nyangwa_carousel");
+            if (saved) try { const parsed = JSON.parse(saved); if (Array.isArray(parsed) && parsed.length > 0) { carouselImages =
+                        parsed; return; } } catch (e) {}
+            carouselImages = getDefaultCarouselImages();
+            localStorage.setItem("nyangwa_carousel", JSON.stringify(carouselImages));
+        }
+
+        function saveCarouselImages() { localStorage.setItem("nyangwa_carousel", JSON.stringify(carouselImages)); }
+        let carouselIndex = 0,
+            carouselInterval = null;
+
+        function renderCarousel() {
+            const container = document.getElementById('carouselContainer');
+            const indicators = document.getElementById('carouselIndicators');
+            if (!container) return;
+            container.innerHTML = '';
+            if (carouselImages.length === 0) {
+                container.innerHTML =
+                    `<div style="position:absolute;top:0;left:0;width:100%;height:100%;background:#0d1b2a;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2rem;">Nyangwa Boys High School</div>`;
+                return;
+            }
+            carouselImages.forEach((img, idx) => {
+                const slide = document.createElement('div');
+                slide.className = `carousel-slide ${idx===0?'active':''}`;
+                slide.style.backgroundImage = `url('${img.dataUrl}')`;
+                slide.dataset.index = idx;
+                const caption = document.createElement('div');
+                caption.className = 'slide-caption';
+                caption.textContent = img.label || `Slide ${idx+1}`;
+                slide.appendChild(caption);
+                container.appendChild(slide);
+            });
+            indicators.innerHTML = '';
+            carouselImages.forEach((_, idx) => {
+                const dot = document.createElement('div');
+                dot.className = `dot ${idx===0?'active':''}`;
+                dot.dataset.index = idx;
+                dot.addEventListener('click', () => goToCarouselSlide(idx));
+                indicators.appendChild(dot);
+            });
+            startCarousel();
+        }
+
+        function goToCarouselSlide(index) {
+            const slides = document.querySelectorAll('#carouselContainer .carousel-slide');
+            const dots = document.querySelectorAll('#carouselIndicators .dot');
+            if (!slides.length) return;
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            const idx = ((index % slides.length) + slides.length) % slides.length;
+            slides[idx].classList.add('active');
+            dots[idx].classList.add('active');
+            carouselIndex = idx;
+        }
+
+        function nextCarouselSlide() { if (carouselImages.length) goToCarouselSlide(carouselIndex + 1); }
+
+        function startCarousel() { if (carouselInterval) clearInterval(carouselInterval);
+            carouselInterval = setInterval(nextCarouselSlide, 2000); }
+
+        function stopCarousel() { if (carouselInterval) { clearInterval(carouselInterval);
+                carouselInterval = null; } }
+
+        // ─── GALLERY ──────────────────────────────────────────────────────────
+        let galleryImages = [];
+
+        function getDefaultGalleryImages() {
+            return [
+                { id: 'g1', caption: 'Graduation Day 2025', date: '2025-12-10',
+                    dataUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%230f3b5c'/%3E%3Ccircle cx='200' cy='130' r='70' fill='%23c9a020' opacity='0.2'/%3E%3Ctext x='200' y='120' font-size='64' text-anchor='middle' fill='%23c9a020'%3E🎓%3C/text%3E%3Ctext x='200' y='180' font-size='22' text-anchor='middle' fill='%23ffffff' font-family='sans-serif'%3EGraduation%3C/text%3E%3Ctext x='200' y='210' font-size='14' text-anchor='middle' fill='%2390b4d1'%3EClass of 2025%3C/text%3E%3C/svg%3E" },
+                { id: 'g2', caption: 'Football Team Champions', date: '2025-11-20',
+                    dataUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%230f3b5c'/%3E%3Ccircle cx='200' cy='120' r='60' fill='%23c9a020' opacity='0.15'/%3E%3Ctext x='200' y='120' font-size='64' text-anchor='middle' fill='%23ffffff'%3E⚽%3C/text%3E%3Ctext x='200' y='190' font-size='22' text-anchor='middle' fill='%23ffffff' font-family='sans-serif'%3EFootball Champions%3C/text%3E%3Ctext x='200' y='220' font-size='14' text-anchor='middle' fill='%2390b4d1'%3EInter-School Tournament%3C/text%3E%3C/svg%3E" },
+                { id: 'g3', caption: 'Science Fair 2025', date: '2025-09-05',
+                    dataUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%230f3b5c'/%3E%3Ctext x='200' y='120' font-size='64' text-anchor='middle' fill='%23c9a020'%3E🔬%3C/text%3E%3Ctext x='200' y='190' font-size='22' text-anchor='middle' fill='%23ffffff' font-family='sans-serif'%3EScience Fair%3C/text%3E%3Ctext x='200' y='220' font-size='14' text-anchor='middle' fill='%2390b4d1'%3EInnovation &amp; Discovery%3C/text%3E%3C/svg%3E" },
+                { id: 'g4', caption: 'Music & Drama Festival', date: '2025-07-15',
+                    dataUrl: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect width='400' height='300' fill='%230f3b5c'/%3E%3Ctext x='200' y='120' font-size='64' text-anchor='middle' fill='%23e74c3c'%3E🎭%3C/text%3E%3Ctext x='200' y='190' font-size='22' text-anchor='middle' fill='%23ffffff' font-family='sans-serif'%3EMusic &amp; Drama%3C/text%3E%3Ctext x='200' y='220' font-size='14' text-anchor='middle' fill='%2390b4d1'%3ECelebrating Talent%3C/text%3E%3C/svg%3E" }
+            ];
+        }
+
+        function loadGalleryImages() {
+            const saved = localStorage.getItem("nyangwa_gallery");
+            if (saved) try { const parsed = JSON.parse(saved); if (Array.isArray(parsed) && parsed.length > 0) { galleryImages =
+                        parsed; return; } } catch (e) {}
+            galleryImages = getDefaultGalleryImages();
+            localStorage.setItem("nyangwa_gallery", JSON.stringify(galleryImages));
+        }
+
+        function saveGalleryImages() { localStorage.setItem("nyangwa_gallery", JSON.stringify(galleryImages)); }
+
+        function generateId() { return 'g' + Date.now().toString(36) + Math.random().toString(36).substring(2, 6); }
+
+        function renderCoverGallery() {
+            const grid = document.getElementById('coverGalleryGrid');
+            if (!grid) return;
+            const isAdmin = currentRole === 'admin';
+            if (galleryImages.length === 0) {
+                grid.innerHTML =
+                    `<div class="gallery-empty"><i class="fas fa-images"></i><p>No photos in the gallery yet. ${isAdmin?'Click "Add Image" to upload.':'Check back soon!'}</p></div>`;
+                return;
+            }
+            let html = '';
+            const sorted = [...galleryImages].sort((a, b) => new Date(b.date) - new Date(a.date));
+            sorted.forEach(img => {
+                const displayDate = img.date ? new Date(img.date).toLocaleDateString('en-KE', { year: 'numeric',
+                    month: 'short', day: 'numeric' }) : 'No date';
+                html += `<div class="gallery-item" data-id="${img.id}">
+                            <img src="${img.dataUrl}" alt="${img.caption}" loading="lazy" />
+                            <div class="gallery-info"><div class="caption">${img.caption}</div><div class="date"><i class="far fa-calendar-alt"></i> ${displayDate}</div></div>
+                            ${isAdmin?`<div class="gallery-actions"><button class="delete-gallery-btn" data-id="${img.id}" title="Delete"><i class="fas fa-trash"></i></button></div>`:''}
+                        </div>`;
+            });
+            grid.innerHTML = html;
+            if (isAdmin) {
+                document.querySelectorAll('.delete-gallery-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const id = this.dataset.id;
+                        if (confirm('Delete this image?')) {
+                            galleryImages = galleryImages.filter(img => img.id !== id);
+                            saveGalleryImages();
+                            renderCoverGallery();
+                            if (currentRole === 'admin' && document.getElementById('adminGalleryView'))
+                                renderAdminGalleryView();
+                        }
+                    });
+                });
+            }
+            const adminBar = document.getElementById('galleryAdminBar');
+            if (adminBar) adminBar.style.display = isAdmin ? 'flex' : 'none';
+        }
+
+        function showAddGalleryImageModal() {
+            let uploadedDataUrl = null;
+            const html = `
+                    <h3>📸 Add Gallery Image</h3>
+                    <p style="color:var(--text-secondary);font-size:0.9rem;">Upload an image to the school gallery.</p>
+                    <label>Image</label>
+                    <div class="image-upload-area" id="galleryUploadArea">
+                        <input type="file" id="galleryImageInput" accept="image/*" multiple />
+                        <span class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></span>
+                        <span class="upload-text">Click to upload one or many images (JPG, PNG, SVG)</span>
+                    </div>
+                    <img id="galleryImagePreview" class="image-upload-preview" style="display:none;" alt="Preview" />
+                    <label>Caption</label><input id="galleryCaption" placeholder="e.g., Graduation Day 2025" />
+                    <label>Date</label><input type="date" id="galleryDate" value="${new Date().toISOString().slice(0,10)}" />
+                    <div class="modal-actions">
+                        <button id="saveGalleryImageBtn" class="btn-sm primary">Add to Gallery</button>
+                        <button id="cancelGalleryImageBtn" class="btn-sm outline">Cancel</button>
+                    </div>
+                `;
+            showModal('Add Gallery Image', html, null);
+            setTimeout(() => {
+                const fileInput = document.getElementById('galleryImageInput');
+                const preview = document.getElementById('galleryImagePreview');
+                const uploadArea = document.getElementById('galleryUploadArea');
+                fileInput?.addEventListener('change', function(e) {
+                    if (this.files && this.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = function(ev) { uploadedDataUrl = ev.target.result;
+                            preview.src = ev.target.result;
+                            preview.style.display = 'block'; };
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+                uploadArea?.addEventListener('click', () => fileInput?.click());
+                document.getElementById('saveGalleryImageBtn')?.addEventListener('click', () => {
+                    const caption = document.getElementById('galleryCaption').value.trim();
+                    const date = document.getElementById('galleryDate').value;
+                    if (!caption) { alert('Please enter a caption.'); return; }
+                    if (!uploadedDataUrl) { alert('Please upload an image.'); return; }
+                    if (!date) { alert('Please select a date.'); return; }
+                    const files = Array.from(document.getElementById('galleryImageInput')?.files || []);
+                    if(files.length>1){ let done=0; files.forEach((file,i)=>{ const r=new FileReader(); r.onload=e=>{ galleryImages.push({id:generateId(),caption:caption+(files.length>1?' '+(i+1):''),date,dataUrl:e.target.result}); done++; if(done===files.length){saveGalleryImages();closeModal();renderCoverGallery();if(currentRole==='admin'&&document.getElementById('adminGalleryView'))renderAdminGalleryView();} }; r.readAsDataURL(file); }); return; }
+                    galleryImages.push({ id: generateId(), caption, date, dataUrl: uploadedDataUrl });
+                    saveGalleryImages();
+                    closeModal();
+                    renderCoverGallery();
+                    if (currentRole === 'admin' && document.getElementById('adminGalleryView'))
+                        renderAdminGalleryView();
+                });
+                document.getElementById('cancelGalleryImageBtn')?.addEventListener('click', closeModal);
+            }, 50);
+        }
+
+        function renderAdminGalleryView() {
+            const container = document.getElementById('mainContent');
+            if (!container) return;
+            let html =
+                `<div class="card"><h3><i class="fas fa-images" style="color:var(--accent-gold);"></i> Manage Gallery</h3><p style="color:var(--text-secondary);font-size:0.85rem;">Add or remove images.</p><div style="margin:16px 0;display:flex;gap:12px;flex-wrap:wrap;"><button id="adminAddGalleryBtn" class="btn-sm primary" style="background:var(--accent-gold);"><i class="fas fa-plus"></i> Add Image</button><button id="adminRefreshGalleryBtn" class="btn-sm outline"><i class="fas fa-sync-alt"></i> Refresh</button><span style="font-size:0.8rem;color:var(--text-secondary);display:flex;align-items:center;"><i class="fas fa-info-circle"></i> ${galleryImages.length} images</span></div><div id="adminGalleryGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px;margin-top:12px;">`;
+            if (galleryImages.length === 0) {
+                html +=
+                    `<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-secondary);"><i class="fas fa-images" style="font-size:3rem;display:block;margin-bottom:12px;color:var(--border-color);"></i><p>No images.</p></div>`;
+            } else {
+                const sorted = [...galleryImages].sort((a, b) => new Date(b.date) - new Date(a.date));
+                sorted.forEach(img => {
+                    const displayDate = img.date ? new Date(img.date).toLocaleDateString('en-KE') : 'No date';
+                    html +=
+                        `<div style="background:var(--bg-card);border-radius:16px;overflow:hidden;border:1px solid var(--border-color);position:relative;"><img src="${img.dataUrl}" alt="${img.caption}" style="width:100%;height:180px;object-fit:cover;display:block;background:#f0f5f2;" /><div style="padding:10px 14px;"><div style="font-weight:600;color:var(--text-primary);font-size:0.9rem;">${img.caption}</div><div style="font-size:0.7rem;color:var(--text-secondary);">${displayDate}</div></div><button class="admin-del-gallery-btn" data-id="${img.id}" style="position:absolute;top:8px;right:8px;background:rgba(192,57,43,0.85);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;transition:0.2s;font-size:0.8rem;display:flex;align-items:center;justify-content:center;"><i class="fas fa-trash"></i></button></div>`;
+                });
+            }
+            html += `</div></div>`;
+            container.innerHTML = html;
+            document.getElementById('adminAddGalleryBtn')?.addEventListener('click', showAddGalleryImageModal);
+            document.getElementById('adminRefreshGalleryBtn')?.addEventListener('click', renderAdminGalleryView);
+            document.querySelectorAll('.admin-del-gallery-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    if (confirm('Delete this image?')) {
+                        galleryImages = galleryImages.filter(img => img.id !== id);
+                        saveGalleryImages();
+                        renderAdminGalleryView();
+                        renderCoverGallery();
+                    }
+                });
+            });
+        }
+
+        // ─── ASSOCIATIONS & CLUBS DATA ──────────────────────────────────────
+        let associationsData = [];
+        let clubsData = [];
+
+        function getDefaultAssociations() {
+            return [
+                { id: 'a1', name: 'Muslim Association', description: 'A community of Muslim students fostering faith and unity.',
+                    image: 'https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=400&h=300&fit=crop&crop=center' },
+                { id: 'a2', name: 'YCS (Young Christian Students)',
+                    description: 'Empowering young Christians to live out their faith in school.', image: 'https://images.unsplash.com/photo-1518156677180-95a1aee6fd2b?w=400&h=300&fit=crop&crop=center' },
+                { id: 'a3', name: 'SDA (Seventh-Day Adventist)',
+                    description: 'A vibrant community of Adventist students and staff.', image: 'https://images.unsplash.com/photo-1511300636408-a63a89df3482?w=400&h=300&fit=crop&crop=center' }
+            ];
+        }
+
+        function getDefaultClubs() {
+            return [
+                { id: 'c1', name: 'St. John Ambulance', description: 'First aid and emergency response training.',
+                    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&h=300&fit=crop&crop=center' },
+                { id: 'c2', name: 'Scouting', description: 'Building leadership, survival skills, and community service.',
+                    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f8d2?w=400&h=300&fit=crop&crop=center' },
+                { id: 'c3', name: 'Wildlife Club', description: 'Conservation and environmental awareness.',
+                    image: 'https://images.unsplash.com/photo-1517502474097-1ff0b6f7b0b4?w=400&h=300&fit=crop&crop=center' },
+                { id: 'c4', name: 'Agriculture Club', description: 'Farming, agribusiness, and sustainable practices.',
+                    image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=400&h=300&fit=crop&crop=center' },
+                { id: 'c5', name: 'Red Cross', description: 'Humanitarian work, health, and disaster response.',
+                    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85f8d2?w=400&h=300&fit=crop&crop=center' }
+            ];
+        }
+
+        function loadAssociations() {
+            const saved = localStorage.getItem('nyangwa_associations');
+            if (saved) try { const parsed = JSON.parse(saved); if (Array.isArray(parsed) && parsed.length > 0) associationsData = parsed; } catch (e) {}
+            if (!associationsData.length) associationsData = getDefaultAssociations();
+            associationsData.forEach(a => { if (!Array.isArray(a.images)) a.images = a.image ? [a.image] : []; if (!a.image && a.images[0]) a.image=a.images[0]; });
+            localStorage.setItem('nyangwa_associations', JSON.stringify(associationsData));
+        }
+
+        function saveAssociations() { localStorage.setItem('nyangwa_associations', JSON.stringify(associationsData)); }
+
+        function loadClubs() {
+            const saved = localStorage.getItem('nyangwa_clubs');
+            if (saved) try { const parsed = JSON.parse(saved); if (Array.isArray(parsed) && parsed.length > 0) clubsData = parsed; } catch (e) {}
+            if (!clubsData.length) clubsData = getDefaultClubs();
+            clubsData.forEach(c => { if (!Array.isArray(c.images)) c.images = c.image ? [c.image] : []; if (!c.image && c.images[0]) c.image=c.images[0]; });
+            localStorage.setItem('nyangwa_clubs', JSON.stringify(clubsData));
+        }
+
+        function saveClubs() { localStorage.setItem('nyangwa_clubs', JSON.stringify(clubsData)); }
+
+        // ─── RENDER ASSOCIATIONS PAGE ──────────────────────────────────────
+        function renderAssociationsPage() {
+            const container = document.getElementById('mainContent');
+            if (!container) return;
+            const isAdmin = currentRole === 'admin';
+            let html =
+                `<div class="card"><h3><i class="fas fa-handshake" style="color:var(--accent-gold);"></i> Associations</h3><p style="color:var(--text-secondary);font-size:0.9rem;">Faith and community groups that shape our character.</p>`;
+            if (isAdmin) {
+                html +=
+                    `<div style="margin:16px 0;display:flex;gap:12px;flex-wrap:wrap;"><button id="assocAddBtn" class="btn-sm primary" style="background:var(--accent-gold);"><i class="fas fa-plus"></i> Add Association</button><button id="assocRefreshBtn" class="btn-sm outline"><i class="fas fa-sync-alt"></i> Refresh</button></div>`;
+            }
+            html += `<div class="assoc-club-grid" id="assocPageGrid">`;
+            if (associationsData.length === 0) {
+                html += `<div class="empty-state"><i class="fas fa-handshake"></i><p>No associations yet. ${isAdmin?'Click "Add Association" to create one.':'Check back later.'}</p></div>`;
+            } else {
+                associationsData.forEach(item => {
+                    html += `<div class="assoc-club-item" data-id="${item.id}">
+                                <img src="${item.image}" alt="${item.name}" loading="lazy" />
+                                <div class="info"><div class="name">${item.name}</div><div class="desc">${item.description}</div></div>
+                                ${isAdmin?`<div class="admin-actions"><button class="assoc-photos-btn" data-id="${item.id}" title="Photos"><i class="fas fa-images"></i></button><button class="assoc-delete-btn" data-id="${item.id}" title="Delete"><i class="fas fa-trash"></i></button></div>`:''}
+                            </div>`;
+                });
+            }
+            html += `</div></div>`;
+            container.innerHTML = html;
+
+            if (isAdmin) {
+                document.getElementById('assocAddBtn')?.addEventListener('click', showAddAssocModal);
+                document.getElementById('assocRefreshBtn')?.addEventListener('click', renderAssociationsPage);
+                document.querySelectorAll('.assoc-photos-btn').forEach(btn=>btn.addEventListener('click',()=>showMultiPhotoModal('association',btn.dataset.id)));
+                document.querySelectorAll('.assoc-delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = this.dataset.id;
+                        if (confirm('Delete this association?')) {
+                            associationsData = associationsData.filter(a => a.id !== id);
+                            saveAssociations();
+                            renderAssociationsPage();
+                            renderAssociationsCover();
+                        }
+                    });
+                });
+            }
+        }
+
+        // ─── RENDER CLUBS PAGE ──────────────────────────────────────────────
+        function renderClubsPage() {
+            const container = document.getElementById('mainContent');
+            if (!container) return;
+            const isAdmin = currentRole === 'admin';
+            let html =
+                `<div class="card"><h3><i class="fas fa-users" style="color:var(--accent-gold);"></i> Clubs & Societies</h3><p style="color:var(--text-secondary);font-size:0.9rem;">Co-curricular activities that build skills and friendships.</p>`;
+            if (isAdmin) {
+                html +=
+                    `<div style="margin:16px 0;display:flex;gap:12px;flex-wrap:wrap;"><button id="clubAddBtn" class="btn-sm primary" style="background:var(--accent-gold);"><i class="fas fa-plus"></i> Add Club</button><button id="clubRefreshBtn" class="btn-sm outline"><i class="fas fa-sync-alt"></i> Refresh</button></div>`;
+            }
+            html += `<div class="assoc-club-grid" id="clubPageGrid">`;
+            if (clubsData.length === 0) {
+                html += `<div class="empty-state"><i class="fas fa-users"></i><p>No clubs yet. ${isAdmin?'Click "Add Club" to create one.':'Check back later.'}</p></div>`;
+            } else {
+                clubsData.forEach(item => {
+                    html += `<div class="assoc-club-item" data-id="${item.id}">
+                                <img src="${item.image}" alt="${item.name}" loading="lazy" />
+                                <div class="info"><div class="name">${item.name}</div><div class="desc">${item.description}</div></div>
+                                ${isAdmin?`<div class="admin-actions"><button class="club-photos-btn" data-id="${item.id}" title="Photos"><i class="fas fa-images"></i></button><button class="club-delete-btn" data-id="${item.id}" title="Delete"><i class="fas fa-trash"></i></button></div>`:''}
+                            </div>`;
+                });
+            }
+            html += `</div></div>`;
+            container.innerHTML = html;
+
+            if (isAdmin) {
+                document.getElementById('clubAddBtn')?.addEventListener('click', showAddClubModal);
+                document.getElementById('clubRefreshBtn')?.addEventListener('click', renderClubsPage);
+                document.querySelectorAll('.club-photos-btn').forEach(btn=>btn.addEventListener('click',()=>showMultiPhotoModal('club',btn.dataset.id)));
+                document.querySelectorAll('.club-delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = this.dataset.id;
+                        if (confirm('Delete this club?')) {
+                            clubsData = clubsData.filter(c => c.id !== id);
+                            saveClubs();
+                            renderClubsPage();
+                            renderClubsCover();
+                        }
+                    });
+                });
+            }
+        }
+
+        function showMultiPhotoModal(type,id){
+            const list=type==='club'?clubsData:associationsData; const item=list.find(x=>x.id===id); if(!item)return;
+            if(!Array.isArray(item.images)) item.images=item.image?[item.image]:[];
+            const storageKey=type==='club'?'nyangwa_clubs':'nyangwa_associations';
+            const html=`<h3>📸 ${type==='club'?'Club':'Society'} Photos — ${item.name}</h3><p style="color:var(--text-secondary);">Upload many photos for this ${type==='club'?'club':'society'}.</p><div class="image-upload-area" id="multiPhotoArea"><input type="file" id="multiPhotoInput" accept="image/*" multiple><span class="upload-icon"><i class="fas fa-images"></i></span><span class="upload-text">Click to select multiple photos</span></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-top:15px;">${item.images.map((im,i)=>`<div style="position:relative;"><img src="${im}" style="width:100%;height:100px;object-fit:cover;border-radius:10px;"><button class="removeMultiPhoto btn-sm danger" data-index="${i}" style="position:absolute;top:4px;right:4px;padding:4px 8px;">×</button></div>`).join('')}</div><div class="modal-actions"><button id="closeMultiPhoto" class="btn-sm outline">Close</button></div>`;
+            showModal('Manage Photos',html);
+            const input=document.getElementById('multiPhotoInput');
+            document.getElementById('multiPhotoArea')?.addEventListener('click',()=>input?.click());
+            input?.addEventListener('change',function(){const files=Array.from(this.files||[]);if(!files.length)return;let done=0;files.forEach(file=>{const r=new FileReader();r.onload=e=>{item.images.push(e.target.result);done++;if(done===files.length){item.image=item.images[0]||'';localStorage.setItem(storageKey,JSON.stringify(list));closeModal();showMultiPhotoModal(type,id);renderClubsCover();renderAssociationsCover();}};r.readAsDataURL(file);});});
+            document.querySelectorAll('.removeMultiPhoto').forEach(btn=>btn.addEventListener('click',()=>{item.images.splice(Number(btn.dataset.index),1);item.image=item.images[0]||'';localStorage.setItem(storageKey,JSON.stringify(list));showMultiPhotoModal(type,id);renderClubsCover();renderAssociationsCover();}));
+            document.getElementById('closeMultiPhoto')?.addEventListener('click',closeModal);
+        }
+
+        // ─── COVER PREVIEW RENDERING ────────────────────────────────────────
+        function renderAssociationsCover() {
+            const grid = document.getElementById('associationsGrid');
+            if (!grid) return;
+            let html = '';
+            associationsData.slice(0, 6).forEach(item => {
+                html += `<div class="assoc-club-item">
+                            <img src="${item.image}" alt="${item.name}" loading="lazy" />
+                            <div class="info"><div class="name">${item.name}</div><div class="desc">${item.description}</div></div>
+                        </div>`;
+            });
+            if (associationsData.length === 0) {
+                html =
+                    `<div class="empty-state" style="grid-column:1/-1;"><i class="fas fa-handshake"></i><p>No associations yet.</p></div>`;
+            }
+            grid.innerHTML = html;
+        }
+
+        function renderClubsCover() {
+            const grid = document.getElementById('clubsGrid');
+            if (!grid) return;
+            let html = '';
+            clubsData.slice(0, 6).forEach(item => {
+                html += `<div class="assoc-club-item">
+                            <img src="${item.image}" alt="${item.name}" loading="lazy" />
+                            <div class="info"><div class="name">${item.name}</div><div class="desc">${item.description}</div></div>
+                        </div>`;
+            });
+            if (clubsData.length === 0) {
+                html =
+                    `<div class="empty-state" style="grid-column:1/-1;"><i class="fas fa-users"></i><p>No clubs yet.</p></div>`;
+            }
+            grid.innerHTML = html;
+        }
+
+        // ─── ADMIN MODALS FOR ASSOCIATIONS & CLUBS ──────────────────────────
+        function showAddAssocModal() {
+            let uploadedDataUrl = null;
+            const html = `
+                    <h3>➕ Add Association</h3>
+                    <label>Name</label><input id="assocName" placeholder="e.g., ACK Good Samaritan" />
+                    <label>Description</label><textarea id="assocDesc" placeholder="Brief description"></textarea>
+                    <label>Image</label>
+                    <div class="image-upload-area" id="assocUploadArea">
+                        <input type="file" id="assocImageInput" accept="image/*" multiple />
+                        <span class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></span>
+                        <span class="upload-text">Click to upload an image</span>
+                    </div>
+                    <img id="assocImagePreview" class="image-upload-preview" style="display:none;" alt="Preview" />
+                    <div class="modal-actions">
+                        <button id="saveAssocBtn" class="btn-sm primary">Add</button>
+                        <button id="cancelAssocBtn" class="btn-sm outline">Cancel</button>
+                    </div>
+                `;
+            showModal('Add Association', html, null);
+            setTimeout(() => {
+                const fileInput = document.getElementById('assocImageInput');
+                const preview = document.getElementById('assocImagePreview');
+                const uploadArea = document.getElementById('assocUploadArea');
+                fileInput?.addEventListener('change', function(e) {
+                    if (this.files && this.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = function(ev) { uploadedDataUrl = ev.target.result;
+                            preview.src = ev.target.result;
+                            preview.style.display = 'block'; };
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+                uploadArea?.addEventListener('click', () => fileInput?.click());
+                document.getElementById('saveAssocBtn')?.addEventListener('click', () => {
+                    const name = document.getElementById('assocName').value.trim();
+                    const description = document.getElementById('assocDesc').value.trim();
+                    if (!name) { alert('Please enter a name.'); return; }
+                    if (!uploadedDataUrl) { alert('Please upload an image.'); return; }
+                    associationsData.push({ id: generateId(), name, description, image: uploadedDataUrl, images: [uploadedDataUrl] });
+                    saveAssociations();
+                    closeModal();
+                    renderAssociationsPage();
+                    renderAssociationsCover();
+                });
+                document.getElementById('cancelAssocBtn')?.addEventListener('click', closeModal);
+            }, 50);
+        }
+
+        function showAddClubModal() {
+            let uploadedDataUrl = null;
+            const html = `
+                    <h3>➕ Add Club</h3>
+                    <label>Name</label><input id="clubName" placeholder="e.g., Wildlife Club" />
+                    <label>Description</label><textarea id="clubDesc" placeholder="Brief description"></textarea>
+                    <label>Image</label>
+                    <div class="image-upload-area" id="clubUploadArea">
+                        <input type="file" id="clubImageInput" accept="image/*" multiple />
+                        <span class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></span>
+                        <span class="upload-text">Click to upload an image</span>
+                    </div>
+                    <img id="clubImagePreview" class="image-upload-preview" style="display:none;" alt="Preview" />
+                    <div class="modal-actions">
+                        <button id="saveClubBtn" class="btn-sm primary">Add</button>
+                        <button id="cancelClubBtn" class="btn-sm outline">Cancel</button>
+                    </div>
+                `;
+            showModal('Add Club', html, null);
+            setTimeout(() => {
+                const fileInput = document.getElementById('clubImageInput');
+                const preview = document.getElementById('clubImagePreview');
+                const uploadArea = document.getElementById('clubUploadArea');
+                fileInput?.addEventListener('change', function(e) {
+                    if (this.files && this.files[0]) {
+                        const reader = new FileReader();
+                        reader.onload = function(ev) { uploadedDataUrl = ev.target.result;
+                            preview.src = ev.target.result;
+                            preview.style.display = 'block'; };
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+                uploadArea?.addEventListener('click', () => fileInput?.click());
+                document.getElementById('saveClubBtn')?.addEventListener('click', () => {
+                    const name = document.getElementById('clubName').value.trim();
+                    const description = document.getElementById('clubDesc').value.trim();
+                    if (!name) { alert('Please enter a name.'); return; }
+                    if (!uploadedDataUrl) { alert('Please upload an image.'); return; }
+                    clubsData.push({ id: generateId(), name, description, image: uploadedDataUrl, images: [uploadedDataUrl] });
+                    saveClubs();
+                    closeModal();
+                    renderClubsPage();
+                    renderClubsCover();
+                });
+                document.getElementById('cancelClubBtn')?.addEventListener('click', closeModal);
+            }, 50);
+        }
+
+        // ─── SCHOOL PROFILE ──────────────────────────────────────────────────
+        let schoolProfile = {
+            name: "Nyangwa Boys High School",
+            motto: "Learn With Determination, Serve With Dedication",
+            phone: "+254 701762213",
+            email: "info@nyangwaboys.sc.ke",
+            address: "Nyangwa, Embu County, Kenya",
+            sponsorName: "ACK Good Samaritan",
+            sponsorDescription: "Nyangwa Boys High School is sponsored by ACK Good Samaritan, supporting education, character and service.",
+            sponsorImage: "",
+            logo: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%230f3b5c'/%3E%3Ctext x='50' y='67' font-size='40' text-anchor='middle' fill='%23c9a020' font-weight='bold'%3ENG%3C/text%3E%3C/svg%3E"
+        };
+
+        function loadSchoolProfile() {
+            const saved = localStorage.getItem("nyangwa_school_profile");
+            if (saved) try { const parsed = JSON.parse(saved);
+                    schoolProfile = { ...schoolProfile, ...parsed }; } catch (e) {}
+            updateSchoolProfileUI();
+        }
+
+        function updateSchoolProfileUI() {
+            document.getElementById("sidebarLogo").src = schoolProfile.logo;
+            document.getElementById("schoolNameDisplay").innerText = schoolProfile.name;
+            document.getElementById("schoolMottoDisplay").innerText = schoolProfile.motto;
+            document.getElementById("loginLogoImg").src = schoolProfile.logo;
+            document.getElementById("loginSchoolName").innerHTML = schoolProfile.name.replace(/ /g, '<br>');
+            document.getElementById("loginSchoolMotto").innerText = schoolProfile.motto;
+            document.getElementById("coverLogoImg").src = schoolProfile.logo;
+            const sn=document.getElementById("sponsorName"), sd=document.getElementById("sponsorDescription"), si=document.getElementById("sponsorImage");
+            if(sn) sn.textContent=schoolProfile.sponsorName||"ACK Good Samaritan";
+            if(sd) sd.textContent=schoolProfile.sponsorDescription||"";
+            if(si){si.src=schoolProfile.sponsorImage||"";si.style.display=schoolProfile.sponsorImage?"block":"none";}
+            applyCoverSettings();
+        }
+
+        function saveSchoolProfile(profile) {
+            schoolProfile = { ...schoolProfile, ...profile };
+            localStorage.setItem("nyangwa_school_profile", JSON.stringify(schoolProfile));
+            updateSchoolProfileUI();
+        }
+
+        // ─── ADMIN CREDENTIALS ──────────────────────────────────────────────
+        let adminCredentials = { username: "", password: "" };
+
+        function loadAdminCredentials() {
+            const saved = localStorage.getItem("nyangwa_admin_creds");
+            if (saved) try { const parsed = JSON.parse(saved); if (parsed.username && parsed.password) adminCredentials =
+                        parsed; } catch (e) {}
+            else localStorage.setItem("nyangwa_admin_creds", JSON.stringify(adminCredentials));
+        }
+
+        function verifyAdminLogin(username, password) { return username === adminCredentials.username && password ===
+                adminCredentials.password; }
+
+        // ─── STUDENT HELPERS ─────────────────────────────────────────────────
+        function getGradesForForm(student, form) {
+            if (!student.grades) return [];
+            return student.grades.filter(g => g.form === form);
+        }
+
+        function computeFormPointsAndAverage(student, form) {
+            const grades = getGradesForForm(student, form);
+            if (grades.length === 0) return { totalPoints: 0, avgPoints: 0, subjectCount: 0 };
+            let totalPoints = 0;
+            for (let g of grades) {
+                if (g.points) totalPoints += g.points;
+                else totalPoints += getPointsFromGrade(g.grade, form);
+            }
+            const avg = totalPoints / grades.length;
+            return { totalPoints, avgPoints: avg.toFixed(1), subjectCount: grades.length };
+        }
+
+        function getMeanGradeFromAvg(avgPoints, form) {
+            const system = getGradingSystemForForm(form);
+            if (!system || !system.grades) return "N/A";
+            let best = system.grades[0];
+            for (let g of system.grades) {
+                if (Math.abs(g.points - avgPoints) < Math.abs(best.points - avgPoints)) best = g;
+            }
+            return best.grade;
+        }
+
+        // ─── M-PESA PAYMENT ──────────────────────────────────────────────────
+        function initiateMpesaPayment(student, amount, phoneNumber) {
+            return new Promise((resolve, reject) => {
+                let cleaned = phoneNumber.replace(/\s/g, '');
+                const kenyanRegex = /^(254|0)?(7|1)\d{8}$/;
+                if (!kenyanRegex.test(cleaned)) {
+                    reject({ code: 'INVALID_PHONE',
+                        message: 'Please enter a valid Safaricom number (e.g., 0712345678 or 254712345678).' });
+                    return;
+                }
+                if (amount <= 0) { reject({ code: 'INVALID_AMOUNT', message: 'Amount must be greater than 0.' }); return; }
+                if (amount > 150000) { reject({ code: 'AMOUNT_TOO_HIGH', message: 'Maximum M-Pesa is KES 150,000.' });
+                return; }
+                let msisdn = cleaned;
+                if (msisdn.startsWith('0')) msisdn = '254' + msisdn.slice(1);
+                if (!msisdn.startsWith('254')) msisdn = '254' + msisdn;
+                const transactionId = 'MP' + Date.now().toString().slice(-8) + Math.floor(Math.random() * 1000);
+                const reference = 'NY' + Date.now().toString().slice(-6);
+                const delay = 2000 + Math.random() * 3000;
+                const timeout = setTimeout(() => {
+                    let remaining = amount;
+                    let currentBal = getStudentCurrentBalance(student);
+                    if (remaining > 0 && currentBal > 0) {
+                        const applied = Math.min(remaining, currentBal);
+                        student.termBalances[currentTermId] = Math.max(0, currentBal - applied);
+                        remaining -= applied;
+                        if (!student.transactions) student.transactions = [];
+                        student.transactions.push({
+                            date: new Date().toISOString().slice(0, 10),
+                            desc: `M-Pesa (${reference}) - ${getTermLabel(currentTermId)}`,
+                            amount: -applied,
+                            balanceAfter: getStudentCurrentBalance(student),
+                            term: currentTermId
+                        });
+                    }
+                    if (remaining > 0) {
+                        let nextTerm = getNextTermId(currentTermId);
+                        let maxLoops = 5;
+                        while (remaining > 0 && maxLoops > 0) {
+                            const nextBal = getStudentTermBalance(student, nextTerm);
+                            if (nextBal >= 0) {
+                                student.termBalances[nextTerm] = nextBal + remaining;
+                                if (!student.transactions) student.transactions = [];
+                                student.transactions.push({
+                                    date: new Date().toISOString().slice(0, 10),
+                                    desc: `Excess rollover to ${getTermLabel(nextTerm)} (${reference})`,
+                                    amount: -remaining,
+                                    balanceAfter: student.termBalances[nextTerm],
+                                    term: nextTerm
+                                });
+                                remaining = 0;
+                            }
+                            nextTerm = getNextTermId(nextTerm);
+                            maxLoops--;
+                        }
+                        if (remaining > 0) {
+                            student.termBalances[currentTermId] = (student.termBalances[currentTermId] || 0) + remaining;
+                            if (!student.transactions) student.transactions = [];
+                            student.transactions.push({
+                                date: new Date().toISOString().slice(0, 10),
+                                desc: `Credit balance (${reference})`,
+                                amount: -remaining,
+                                balanceAfter: student.termBalances[currentTermId],
+                                term: currentTermId
+                            });
+                        }
+                    }
+                    saveStudents();
+                    resolve({
+                        success: true,
+                        transactionId,
+                        reference,
+                        msisdn,
+                        amount,
+                        message: 'Payment received. Excess rolled to next term.',
+                        balanceAfter: getStudentCurrentBalance(student)
+                    });
+                }, delay);
+                window._mpesaTimeout = timeout;
+            });
+        }
+
+        // ─── MODAL HELPERS ──────────────────────────────────────────────────
+        function showModal(title, innerHtml, onClose = null) {
+            const modal = document.getElementById('globalModal');
+            document.getElementById('modalInner').innerHTML =
+                `<h3>${title}</h3>${innerHtml}<div class="modal-actions"><button id="modalCloseBtn" class="btn-sm outline">Close</button></div>`;
+            modal.classList.add('active');
+            document.getElementById('modalCloseBtn').onclick = () => { modal.classList.remove('active'); if (onClose) onClose(); };
+            modal.onclick = (e) => { if (e.target === modal) modal.classList.remove('active'); };
+        }
+
+        function closeModal() { document.getElementById('globalModal').classList.remove('active'); }
+
+        // ─── CURRENT USER ────────────────────────────────────────────────────
+        let currentUser = null,
+            currentRole = null;
+        const dashboardContainer = document.getElementById('dashboardContainer'),
+            signinBtn = document.getElementById('signinBtn'),
+            logoutBtn = document.getElementById('logoutBtn'),
+            mainContent = document.getElementById('mainContent'),
+            dynamicNav = document.getElementById('dynamicNav');
+
+        let currentSelectedForm = 1;
+
+        function renderStudentDashboard() {
+            const student = currentUser.data;
+            const currentBal = getStudentCurrentBalance(student);
+            const assignedSubjects = (student.assignedSubjects || []).map(code => allSubjects.find(s => s.code === code))
+                .filter(Boolean);
+            let subjectsHtml =
+                `<table><thead><tr><th>Subject</th><th>Code</th><th>Dept</th></tr></thead><tbody>`;
+            assignedSubjects.forEach(sub => { subjectsHtml +=
+                    `<tr><td>📘 ${sub.name}</td><td>${sub.code}</td><td>${sub.department}</td></tr>`; });
+            subjectsHtml += `</tbody></table>`;
+
+            const formGrades = getGradesForForm(student, currentSelectedForm);
+            const pointsData = computeFormPointsAndAverage(student, currentSelectedForm);
+            const meanGrade = getMeanGradeFromAvg(parseFloat(pointsData.avgPoints), currentSelectedForm);
+
+            let gradesHtml =
+                `<table><thead><tr><th>Subject</th><th>Term</th><th>Score</th><th>Grade</th><th>Points</th><th>Remarks</th></tr></thead><tbody>`;
+            if (formGrades.length > 0) {
+                formGrades.forEach(g => {
+                    const subj = allSubjects.find(s => s.code === g.subjectCode) || { name: g.subjectCode };
+                    const pts = g.points || getPointsFromGrade(g.grade, currentSelectedForm);
+                    gradesHtml +=
+                        `<tr><td>${subj.name}</td><td>${g.term}</td><td>${g.score}</td><td><strong>${g.grade}</strong></td><td><span class="points-badge">${pts}</span></td><td>${g.score>=70?'🌟 Excellent':g.score>=50?'📈 Average':'📉 Needs improvement'}</td></tr>`;
+                });
+            } else { gradesHtml += `<tr><td colspan="6">No grades for Form ${currentSelectedForm}.</td></tr>`; }
+            gradesHtml += `</tbody></table>`;
+            const systemName = getGradingSystemName(currentSelectedForm);
+
+            let termBalHtml = `<div class="term-balance-grid">`;
+            TERM_DEFS.forEach(t => {
+                const bal = getStudentTermBalance(student, t.id);
+                const isCurrent = t.id === currentTermId;
+                const isCredit = bal > 0 && !isCurrent;
+                termBalHtml +=
+                    `<div class="term-balance-item ${isCurrent?'current':''} ${isCredit?'credit':''}"><div class="term-label">${t.label} ${isCurrent?'📍':''}</div><div class="term-amount">KES ${bal.toLocaleString()}</div>${isCredit&&bal>0?'<div class="credit-badge">✓ Credit</div>':''}${isCurrent?'<div style="font-size:0.6rem;color:var(--accent-gold);">Current</div>':''}</div>`;
+            });
+            termBalHtml += `</div>`;
+
+            let galleryPreviewHtml = '';
+            if (galleryImages.length > 0) {
+                const latest = [...galleryImages].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
+                galleryPreviewHtml =
+                    `<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;"><h3><i class="fas fa-images" style="color:var(--accent-gold);"></i> Latest Gallery</h3><button id="viewAllGalleryBtn" class="btn-sm outline" style="font-size:0.8rem;">View All</button></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;margin-top:12px;">`;
+                latest.forEach(img => {
+                    galleryPreviewHtml +=
+                        `<div style="background:var(--bg-card);border-radius:16px;overflow:hidden;border:1px solid var(--border-color);cursor:pointer;" class="gallery-preview-item" data-id="${img.id}"><img src="${img.dataUrl}" alt="${img.caption}" style="width:100%;height:130px;object-fit:cover;display:block;" /><div style="padding:8px 12px;"><div style="font-size:0.85rem;font-weight:600;color:var(--text-primary);">${img.caption}</div><span style="font-size:0.6rem;color:var(--text-secondary);">${img.date?new Date(img.date).toLocaleDateString('en-KE'):''}</span></div></div>`;
+                });
+                galleryPreviewHtml += `</div></div>`;
+            }
+
+            mainContent.innerHTML = `
+                    <div class="card"><h3>👋 Welcome, ${student.name}</h3><p>ID: ${student.id} &nbsp;|&nbsp; Form: ${student.form} &nbsp;|&nbsp; Progress: ${student.progress}%</p><div style="background:var(--border-color);border-radius:40px;height:8px;width:100%;"><div style="width:${student.progress}%;background:var(--accent-gold);height:8px;border-radius:40px;"></div></div></div>
+                    <div class="card"><h3>📅 Fee Balances <span class="term-tag">${getTermLabel(currentTermId)}</span></h3>${termBalHtml}<div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;"><button id="viewStatementBtn" class="btn-sm"><i class="fas fa-receipt"></i> Full Statement</button><button id="payNowBtn" class="btn-sm pay"><i class="fas fa-credit-card"></i> Pay with M-Pesa</button></div><p style="font-size:0.7rem;color:var(--text-secondary);margin-top:8px;"><i class="fas fa-info-circle"></i> Excess payments roll over to the next term automatically.</p></div>
+                    <div class="card"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;"><h3>📚 My Subjects</h3></div>${subjectsHtml}</div>
+                    <div class="card"><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;"><h3>📊 Grades (Form ${currentSelectedForm}) <span style="font-size:0.7rem;font-weight:400;color:var(--text-secondary);">${systemName}</span></h3><div><span class="points-badge">Total Points: ${pointsData.totalPoints}</span><span class="points-badge" style="margin-left:8px;">Mean: ${meanGrade}</span></div></div>${gradesHtml}</div>
+                    ${galleryPreviewHtml}
+                `;
+
+            document.getElementById('viewStatementBtn')?.addEventListener('click', () => {
+                let html =
+                    `<h3>📜 Full Statement</h3><table><thead><tr><th>Date</th><th>Description</th><th>Amount</th><th>Balance</th><th>Term</th></tr></thead><tbody>`;
+                const txs = (student.transactions || []).sort((a, b) => new Date(b.date) - new Date(a.date));
+                if (txs.length === 0) html += `<tr><td colspan="5">No transactions.</td></tr>`;
+                else txs.forEach(t => { html +=
+                        `<tr><td>${t.date}</td><td>${t.desc}</td><td>KES ${t.amount}</td><td>KES ${t.balanceAfter}</td><td>${getTermLabel(t.term||currentTermId)}</td></tr>`; });
+                html += `</tbody></table>`;
+                showModal('Full Statement', html);
+            });
+
+            document.getElementById('payNowBtn')?.addEventListener('click', () => {
+                const html = `
+                        <h3>💳 Pay with M-Pesa</h3>
+                        <p style="color:var(--text-secondary);">Current balance: KES ${getStudentCurrentBalance(student).toLocaleString()}</p>
+                        <label>Amount (KES)</label><input type="number" id="mpesaAmount" min="1" value="${Math.max(1, getStudentCurrentBalance(student) || 1000)}" />
+                        <label>Phone Number</label><input type="tel" id="mpesaPhone" placeholder="0712345678" />
+                        <div class="modal-actions"><button id="mpesaPayBtn" class="btn-sm primary"><i class="fas fa-credit-card"></i> Pay</button><button id="mpesaCancelBtn" class="btn-sm outline">Cancel</button></div>
+                        <div id="mpesaStatus" style="margin-top:12px;font-size:0.9rem;"></div>
+                    `;
+                showModal('M-Pesa Payment', html);
+                document.getElementById('mpesaPayBtn')?.addEventListener('click', async () => {
+                    const amount = parseInt(document.getElementById('mpesaAmount').value);
+                    const phone = document.getElementById('mpesaPhone').value.trim();
+                    if (!phone) { document.getElementById('mpesaStatus').innerHTML =
+                            '<span style="color:#c0392b;">Please enter a phone number.</span>'; return; }
+                    if (!amount || amount < 1) { document.getElementById('mpesaStatus').innerHTML =
+                            '<span style="color:#c0392b;">Enter a valid amount.</span>'; return; }
+                    document.getElementById('mpesaStatus').innerHTML =
+                        '<span style="color:var(--accent-gold);">⏳ Processing payment...</span>';
+                    try {
+                        const result = await initiateMpesaPayment(student, amount, phone);
+                        document.getElementById('mpesaStatus').innerHTML =
+                            `<span style="color:#27ae60;">✅ ${result.message}. New balance: KES ${result.balanceAfter.toLocaleString()}</span>`;
+                        saveStudents();
+                        setTimeout(() => { closeModal();
+                            renderStudentDashboard(); }, 2000);
+                    } catch (err) {
+                        document.getElementById('mpesaStatus').innerHTML =
+                            `<span style="color:#c0392b;">❌ ${err.message || 'Payment failed.'}</span>`;
+                    }
+                });
+                document.getElementById('mpesaCancelBtn')?.addEventListener('click', closeModal);
+            });
+
+            document.getElementById('viewAllGalleryBtn')?.addEventListener('click', () => {
+                let html =
+                    `<h3>📸 All Gallery Images</h3><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:12px;">`;
+                const sorted = [...galleryImages].sort((a, b) => new Date(b.date) - new Date(a.date));
+                if (sorted.length === 0) html +=
+                    `<div style="grid-column:1/-1;text-align:center;color:var(--text-secondary);">No images.</div>`;
+                else sorted.forEach(img => { html +=
+                        `<div style="border-radius:16px;overflow:hidden;border:1px solid var(--border-color);"><img src="${img.dataUrl}" alt="${img.caption}" style="width:100%;height:160px;object-fit:cover;display:block;" /><div style="padding:8px 12px;"><div style="font-weight:600;font-size:0.9rem;">${img.caption}</div><span style="font-size:0.7rem;color:var(--text-secondary);">${img.date?new Date(img.date).toLocaleDateString('en-KE'):''}</span></div></div>`; });
+                html += `</div>`;
+                showModal('Gallery', html);
+            });
+        }
+
+        function renderParentDashboard() {
+            const parent = currentUser.data;
+            const children = getStudentsForParent(parent);
+            if (children.length === 0) {
+                mainContent.innerHTML =
+                    `<div class="card"><h3>👨‍👩‍👦 Parent Dashboard</h3><p style="color:var(--text-secondary);">No children linked to this account.</p></div>`;
+                return;
+            }
+            let html =
+                `<div class="card"><h3>👨‍👩‍👦 Welcome, ${parent.name}</h3><p>You have ${children.length} child(ren) at Nyangwa Boys.</p></div>`;
+            children.forEach(child => {
+                const currentBal = getStudentCurrentBalance(child);
+                const pointsData = computeFormPointsAndAverage(child, child.form);
+                const meanGrade = getMeanGradeFromAvg(parseFloat(pointsData.avgPoints), child.form);
+                html += `<div class="card parent-child-card"><h3>🧑‍🎓 ${child.name} (${child.id}) — Form ${child.form}</h3>
+                        <div class="child-summary">
+                            <div class="summary-item"><div class="label">Progress</div><div class="value gold">${child.progress}%</div></div>
+                            <div class="summary-item"><div class="label">Current Balance</div><div class="value ${currentBal>0?'gold':'blue'}">KES ${currentBal.toLocaleString()}</div></div>
+                            <div class="summary-item"><div class="label">Subjects</div><div class="value">${(child.assignedSubjects||[]).length}</div></div>
+                            <div class="summary-item"><div class="label">Mean Grade</div><div class="value green">${meanGrade}</div></div>
+                        </div>
+                        <div style="margin-top:12px;display:flex;gap:12px;flex-wrap:wrap;">
+                            <button class="btn-sm outline view-child-details" data-id="${child.id}"><i class="fas fa-eye"></i> View Details</button>
+                            <button class="btn-sm pay pay-child-fees" data-id="${child.id}"><i class="fas fa-credit-card"></i> Pay Fees</button>
+                        </div>
+                    </div>`;
+            });
+            mainContent.innerHTML = html;
+
+            // View child details
+            document.querySelectorAll('.view-child-details').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const student = students.find(s => s.id === this.dataset.id);
+                    if (!student) return;
+                    let detailsHtml = `<h3>${student.name} (${student.id})</h3><p>Form ${student.form} · Progress ${student.progress}%</p>`;
+                    detailsHtml += `<h4>Fee Balances</h4><div class="term-balance-grid">`;
+                    TERM_DEFS.forEach(t => {
+                        const bal = getStudentTermBalance(student, t.id);
+                        detailsHtml +=
+                            `<div class="term-balance-item ${t.id===currentTermId?'current':''}"><div class="term-label">${t.label}</div><div class="term-amount">KES ${bal.toLocaleString()}</div></div>`;
+                    });
+                    detailsHtml +=
+                        `</div><h4 style="margin-top:18px;">📚 Subject Performance</h4><table><thead><tr><th>Subject</th><th>Term</th><th>Score</th><th>Grade</th><th>Points</th></tr></thead><tbody>`;
+                    const childGrades=(student.grades||[]);
+                    if(childGrades.length){childGrades.forEach(g=>{const subj=allSubjects.find(s=>s.code===g.subjectCode)||{name:g.subjectCode};const pts=g.points||getPointsFromGrade(g.grade,student.form);detailsHtml+=`<tr><td>${subj.name}</td><td>${g.term}</td><td>${g.score}</td><td><strong>${g.grade}</strong></td><td><span class="points-badge">${pts}</span></td></tr>`;});}else detailsHtml+=`<tr><td colspan="5">No subject performance recorded yet.</td></tr>`;
+                    detailsHtml+=`</tbody></table><h4 style="margin-top:18px;">📸 School Gallery</h4><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;">${[...galleryImages].sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,12).map(img=>`<img src="${img.dataUrl}" alt="${img.caption}" title="${img.caption}" style="width:100%;height:120px;object-fit:cover;border-radius:12px;border:1px solid var(--border-color);">`).join('')}</div><h4 style="margin-top:18px;">Recent Transactions</h4><table><thead><tr><th>Date</th><th>Description</th><th>Amount</th></tr></thead><tbody>`;
+                    const txs = (student.transactions || []).sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0,
+                    5);
+                    if (txs.length === 0) detailsHtml += `<tr><td colspan="3">No transactions.</td></tr>`;
+                    else txs.forEach(t => { detailsHtml +=
+                            `<tr><td>${t.date}</td><td>${t.desc}</td><td>KES ${t.amount}</td></tr>`; });
+                    detailsHtml += `</tbody></table>`;
+                    showModal(`Student: ${student.name}`, detailsHtml);
+                });
+            });
+
+            // Pay fees for child
+            document.querySelectorAll('.pay-child-fees').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const student = students.find(s => s.id === this.dataset.id);
+                    if (!student) return;
+                    const html = `
+                            <h3>💳 Pay Fees for ${student.name}</h3>
+                            <p style="color:var(--text-secondary);">Current balance: KES ${getStudentCurrentBalance(student).toLocaleString()}</p>
+                            <label>Amount (KES)</label><input type="number" id="parentMpesaAmount" min="1" value="${Math.max(1, getStudentCurrentBalance(student) || 1000)}" />
+                            <label>Phone Number</label><input type="tel" id="parentMpesaPhone" placeholder="0712345678" />
+                            <div class="modal-actions"><button id="parentMpesaPayBtn" class="btn-sm primary"><i class="fas fa-credit-card"></i> Pay</button><button id="parentMpesaCancelBtn" class="btn-sm outline">Cancel</button></div>
+                            <div id="parentMpesaStatus" style="margin-top:12px;font-size:0.9rem;"></div>
+                        `;
+                    showModal('M-Pesa Payment', html);
+                    document.getElementById('parentMpesaPayBtn')?.addEventListener('click', async () => {
+                        const amount = parseInt(document.getElementById('parentMpesaAmount').value);
+                        const phone = document.getElementById('parentMpesaPhone').value.trim();
+                        if (!phone) { document.getElementById('parentMpesaStatus').innerHTML =
+                                '<span style="color:#c0392b;">Please enter a phone number.</span>'; return; }
+                        if (!amount || amount < 1) { document.getElementById('parentMpesaStatus')
+                                .innerHTML = '<span style="color:#c0392b;">Enter a valid amount.</span>'; return; }
+                        document.getElementById('parentMpesaStatus').innerHTML =
+                            '<span style="color:var(--accent-gold);">⏳ Processing payment...</span>';
+                        try {
+                            const result = await initiateMpesaPayment(student, amount, phone);
+                            document.getElementById('parentMpesaStatus').innerHTML =
+                                `<span style="color:#27ae60;">✅ ${result.message}. New balance: KES ${result.balanceAfter.toLocaleString()}</span>`;
+                            saveStudents();
+                            setTimeout(() => { closeModal();
+                                renderParentDashboard(); }, 2000);
+                        } catch (err) {
+                            document.getElementById('parentMpesaStatus').innerHTML =
+                                `<span style="color:#c0392b;">❌ ${err.message || 'Payment failed.'}</span>`;
+                        }
+                    });
+                    document.getElementById('parentMpesaCancelBtn')?.addEventListener('click', closeModal);
+                });
+            });
+        }
+
+        function renderStaffDashboard() {
+            const staffMember = currentUser.data;
+            let html =
+                `<div class="card"><h3>👨‍🏫 Welcome, ${staffMember.name}</h3><p>Staff portal — overview of all students.</p></div>`;
+            html += `<div class="card"><h3>📊 School Population</h3><div class="pop-stats">`;
+            const total = students.length;
+            const perForm = { 1: 0, 2: 0, 3: 0, 4: 0 };
+            students.forEach(s => { if (s.form >= 1 && s.form <= 4) perForm[s.form]++; });
+            html += `<span class="stat-badge">Total: <span class="num">${total}</span></span>`;
+            for (let f = 1; f <= 4; f++) { html +=
+                    `<span class="stat-badge">Form ${f}: <span class="num">${perForm[f]||0}</span></span>`; }
+            html += `</div></div>`;
+
+            html += `<div class="card"><h3>👨‍🎓 All Students</h3><table><thead><tr><th>ID</th><th>Name</th><th>Form</th><th>Progress</th><th>Balance</th><th>Mean</th></tr></thead><tbody>`;
+            students.forEach(s => {
+                const pts = computeFormPointsAndAverage(s, s.form);
+                const mean = getMeanGradeFromAvg(parseFloat(pts.avgPoints), s.form);
+                html +=
+                    `<tr><td>${s.id}</td><td>${s.name}</td><td>${s.form}</td><td>${s.progress}%</td><td>KES ${getStudentCurrentBalance(s).toLocaleString()}</td><td><span class="points-badge">${mean}</span></td></tr>`;
+            });
+            html += `</tbody></table></div>`;
+            mainContent.innerHTML = html;
+        }
+
+        function renderAdminDashboard() {
+            let html =
+                `<div class="card"><h3>🏫 School Population</h3><div class="pop-stats"><div class="stat-badge"><span class="num">${getTotalSchoolPopulation()}</span> Total Students</div><div class="stat-badge">Form 1: <span class="num">${getPopulationPerForm()[1]}</span></div><div class="stat-badge">Form 2: <span class="num">${getPopulationPerForm()[2]}</span></div><div class="stat-badge">Form 3: <span class="num">${getPopulationPerForm()[3]}</span></div><div class="stat-badge">Form 4: <span class="num">${getPopulationPerForm()[4]}</span></div><div class="stat-badge">Staff: <span class="num">${staff.length}</span></div></div></div><div class="card"><h3>👩‍💼 Admin Dashboard</h3><p>Manage students, staff, parents, and school content.</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:16px;">
+                        <div style="background:var(--bg-body);border-radius:16px;padding:16px;text-align:center;"><div style="font-size:2rem;">👨‍🎓</div><div style="font-weight:600;">${students.length}</div><div style="font-size:0.8rem;color:var(--text-secondary);">Students</div></div>
+                        <div style="background:var(--bg-body);border-radius:16px;padding:16px;text-align:center;"><div style="font-size:2rem;">👨‍👩‍👦</div><div style="font-weight:600;">${parents.length}</div><div style="font-size:0.8rem;color:var(--text-secondary);">Parents</div></div>
+                        <div style="background:var(--bg-body);border-radius:16px;padding:16px;text-align:center;"><div style="font-size:2rem;">👨‍🏫</div><div style="font-weight:600;">${staff.length}</div><div style="font-size:0.8rem;color:var(--text-secondary);">Staff</div></div>
+                        <div style="background:var(--bg-body);border-radius:16px;padding:16px;text-align:center;"><div style="font-size:2rem;">📸</div><div style="font-weight:600;">${galleryImages.length}</div><div style="font-size:0.8rem;color:var(--text-secondary);">Gallery</div></div>
+                    </div></div>`;
+
+            html += `<div class="card"><h3>⚡ Quick Actions</h3><div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <button id="adminAddStudentBtn" class="btn-sm primary"><i class="fas fa-user-plus"></i> Add Student</button>
+                        <button id="adminManageSubjectsBtn" class="btn-sm outline"><i class="fas fa-book"></i> Manage Subjects</button>
+                        <button id="adminManageGalleryBtn" class="btn-sm"><i class="fas fa-images"></i> Manage Gallery</button>
+                        <button id="adminManageAssociationsBtn" class="btn-sm outline"><i class="fas fa-handshake"></i> Associations</button>
+                        <button id="adminManageClubsBtn" class="btn-sm outline"><i class="fas fa-users"></i> Clubs</button>
+                        <button id="adminManageSchoolBtn" class="btn-sm outline"><i class="fas fa-school"></i> School Profile</button>
+                        <button id="adminManageCoverBtn" class="btn-sm outline"><i class="fas fa-edit"></i> Cover Settings</button>
+                        <button id="adminManageCarouselBtn" class="btn-sm outline"><i class="fas fa-images"></i> Carousel</button>
+                    </div></div>`;
+
+            html += `<div class="card"><h3>📋 All Students</h3><table><thead><tr><th>ID</th><th>Name</th><th>Form</th><th>Progress</th><th>Balance</th><th>Actions</th></tr></thead><tbody>`;
+            students.forEach(s => {
+                html +=
+                    `<tr><td>${s.id}</td><td>${s.name}</td><td>${s.form}</td><td>${s.progress}%</td><td>KES ${getStudentCurrentBalance(s).toLocaleString()}</td><td><button class="btn-sm outline admin-edit-student" data-id="${s.id}" style="font-size:0.7rem;padding:4px 12px;">Edit</button> <button class="btn-sm danger admin-delete-student" data-id="${s.id}" style="font-size:0.7rem;padding:4px 12px;">Delete</button></td></tr>`;
+            });
+            html += `</tbody></table></div>`;
+            mainContent.innerHTML = html;
+
+            document.getElementById('adminAddStudentBtn')?.addEventListener('click', showAddStudentModal);
+            document.getElementById('adminManageSubjectsBtn')?.addEventListener('click', showManageSubjectsModal);
+            document.getElementById('adminManageGalleryBtn')?.addEventListener('click', renderAdminGalleryView);
+            document.getElementById('adminManageAssociationsBtn')?.addEventListener('click', renderAssociationsPage);
+            document.getElementById('adminManageClubsBtn')?.addEventListener('click', renderClubsPage);
+            document.getElementById('adminManageSchoolBtn')?.addEventListener('click', showSchoolProfileModal);
+            document.getElementById('adminManageCoverBtn')?.addEventListener('click', showCoverSettingsModal);
+            document.getElementById('adminManageCarouselBtn')?.addEventListener('click', showCarouselModal);
+
+            document.querySelectorAll('.admin-edit-student').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const student = students.find(s => s.id === this.dataset.id);
+                    if (student) showEditStudentModal(student);
+                });
+            });
+            document.querySelectorAll('.admin-delete-student').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    if (confirm('Delete this student? This action cannot be undone.')) {
+                        students = students.filter(s => s.id !== id);
+                        saveStudents();
+                        renderAdminDashboard();
+                    }
+                });
+            });
+        }
+
+        function showManageSubjectsModal() {
+            let html = `<h3>📚 Manage Subjects</h3><p style="color:var(--text-secondary);">Add or remove subjects. Existing subjects will be preserved.</p>
+                        <div style="margin:16px 0;"><label>Add New Subject</label><div style="display:flex;gap:8px;flex-wrap:wrap;"><input id="newSubjectCode" placeholder="Code (e.g., PHY407)" style="flex:1;min-width:120px;" /><input id="newSubjectName" placeholder="Name" style="flex:2;min-width:150px;" /><input id="newSubjectDept" placeholder="Department" style="flex:1;min-width:100px;" /><button id="addSubjectBtn" class="btn-sm primary">Add</button></div></div>
+                        <table><thead><tr><th>Code</th><th>Name</th><th>Department</th><th>Action</th></tr></thead><tbody>`;
+            allSubjects.forEach(sub => {
+                html +=
+                    `<tr><td>${sub.code}</td><td>${sub.name}</td><td>${sub.department}</td><td><button class="btn-sm danger delete-subject-btn" data-code="${sub.code}" style="font-size:0.7rem;padding:2px 10px;">Delete</button></td></tr>`;
+            });
+            html += `</tbody></table>`;
+            showModal('Manage Subjects', html);
+            document.getElementById('addSubjectBtn')?.addEventListener('click', () => {
+                const code = document.getElementById('newSubjectCode').value.trim().toUpperCase();
+                const name = document.getElementById('newSubjectName').value.trim();
+                const dept = document.getElementById('newSubjectDept').value.trim() || 'General';
+                if (!code) { alert('Please enter a subject code.'); return; }
+                if (!name) { alert('Please enter a subject name.'); return; }
+                if (allSubjects.find(s => s.code === code)) { alert('Subject code already exists.'); return; }
+                allSubjects.push({ code, name, department: dept });
+                saveSubjects();
+                closeModal();
+                showManageSubjectsModal();
+                renderAdminDashboard();
+            });
+            document.querySelectorAll('.delete-subject-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const code = this.dataset.code;
+                    if (confirm(`Delete subject ${code}? This may affect students assigned to it.`)) {
+                        allSubjects = allSubjects.filter(s => s.code !== code);
+                        saveSubjects();
+                        closeModal();
+                        showManageSubjectsModal();
+                        renderAdminDashboard();
+                    }
+                });
+            });
+        }
+
+        function showAddStudentModal() {
+            // Build subject options
+            let subjectOptions = allSubjects.map(s => `<option value="${s.code}">${s.code} - ${s.name}</option>`).join('');
+            const html = `
+                        <h3>➕ Add Student</h3>
+                        <label>Student ID</label><input id="newStudentId" placeholder="e.g., NY9029" />
+                        <label>Full Name</label><input id="newStudentName" placeholder="e.g., John Doe" />
+                        <label>Form</label><select id="newStudentForm"><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select>
+                        <label>Progress (%)</label><input type="number" id="newStudentProgress" value="50" min="0" max="100" />
+                        <label>Assigned Subjects (hold Ctrl/Cmd to select multiple)</label>
+                        <select id="newStudentSubjects" multiple style="height:120px;">${subjectOptions}</select>
+                        <div class="modal-actions"><button id="saveNewStudentBtn" class="btn-sm primary">Add Student</button><button id="cancelNewStudentBtn" class="btn-sm outline">Cancel</button></div>
+                    `;
+            showModal('Add Student', html);
+            document.getElementById('saveNewStudentBtn')?.addEventListener('click', () => {
+                const id = document.getElementById('newStudentId').value.trim();
+                const name = document.getElementById('newStudentName').value.trim();
+                const form = parseInt(document.getElementById('newStudentForm').value);
+                const progress = parseInt(document.getElementById('newStudentProgress').value) || 50;
+                const selected = document.getElementById('newStudentSubjects');
+                const subjects = Array.from(selected.selectedOptions).map(opt => opt.value);
+                if (!id) { alert('Please enter a student ID.'); return; }
+                if (!name) { alert('Please enter a name.'); return; }
+                if (students.find(s => s.id === id)) { alert('Student ID already exists.'); return; }
+                students.push({ id, name, form, progress, assignedSubjects: subjects, termBalances: { term1: 0,
+                        term2: 0, term3: 0 }, transactions: [], grades: [] });
+                saveStudents();
+                closeModal();
+                renderAdminDashboard();
+            });
+            document.getElementById('cancelNewStudentBtn')?.addEventListener('click', closeModal);
+        }
+
+        function showEditStudentModal(student) {
+            // Build subject options with pre-selection
+            let subjectOptions = allSubjects.map(s => {
+                const selected = (student.assignedSubjects || []).includes(s.code) ? 'selected' : '';
+                return `<option value="${s.code}" ${selected}>${s.code} - ${s.name}</option>`;
+            }).join('');
+            const html = `
+                        <h3>✏️ Edit Student</h3>
+                        <label>Name</label><input id="editStudentName" value="${student.name}" />
+                        <label>Form</label><select id="editStudentForm"><option value="1" ${student.form===1?'selected':''}>1</option><option value="2" ${student.form===2?'selected':''}>2</option><option value="3" ${student.form===3?'selected':''}>3</option><option value="4" ${student.form===4?'selected':''}>4</option></select>
+                        <label>Progress</label><input type="number" id="editStudentProgress" value="${student.progress}" min="0" max="100" />
+                        <label>Assigned Subjects (hold Ctrl/Cmd to select multiple)</label>
+                        <select id="editStudentSubjects" multiple style="height:120px;">${subjectOptions}</select>
+                        <div class="modal-actions"><button id="saveEditStudentBtn" class="btn-sm primary">Save</button><button id="cancelEditStudentBtn" class="btn-sm outline">Cancel</button></div>
+                    `;
+            showModal('Edit Student', html);
+            document.getElementById('saveEditStudentBtn')?.addEventListener('click', () => {
+                student.name = document.getElementById('editStudentName').value.trim() || student.name;
+                student.form = parseInt(document.getElementById('editStudentForm').value);
+                student.progress = parseInt(document.getElementById('editStudentProgress').value) || 50;
+                const selected = document.getElementById('editStudentSubjects');
+                student.assignedSubjects = Array.from(selected.selectedOptions).map(opt => opt.value);
+                saveStudents();
+                closeModal();
+                renderAdminDashboard();
+            });
+            document.getElementById('cancelEditStudentBtn')?.addEventListener('click', closeModal);
+        }
+
+        function showSchoolProfileModal() {
+            const html = `
+                        <h3>🏫 School Profile</h3>
+                        <label>School Name</label><input id="profileName" value="${schoolProfile.name}" />
+                        <label>Motto</label><input id="profileMotto" value="${schoolProfile.motto}" />
+                        <label>Phone</label><input id="profilePhone" value="${schoolProfile.phone}" />
+                        <label>Email</label><input id="profileEmail" value="${schoolProfile.email}" />
+                        <label>Address</label><input id="profileAddress" value="${schoolProfile.address}" />
+                        <label>Logo URL</label><input id="profileLogo" value="${schoolProfile.logo}" />
+                        <label>Sponsor Name</label><input id="profileSponsorName" value="${schoolProfile.sponsorName || 'ACK Good Samaritan'}" />
+                        <label>Sponsor Description</label><textarea id="profileSponsorDescription">${schoolProfile.sponsorDescription || ''}</textarea>
+                        <label>Sponsor Image</label><div class="image-upload-area" id="sponsorUploadArea"><input type="file" id="sponsorImageInput" accept="image/*" /><span class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></span><span class="upload-text">Click to upload sponsor image</span></div><img id="sponsorImagePreview" class="image-upload-preview" style="display:${schoolProfile.sponsorImage?'block':'none'};" src="${schoolProfile.sponsorImage || ''}" alt="Sponsor preview" />
+                        <div class="modal-actions"><button id="saveProfileBtn" class="btn-sm primary">Save</button><button id="cancelProfileBtn" class="btn-sm outline">Cancel</button></div>
+                    `;
+            showModal('School Profile', html);
+            let sponsorImage = schoolProfile.sponsorImage || '';
+            const sponsorInput=document.getElementById('sponsorImageInput'), sponsorPreview=document.getElementById('sponsorImagePreview');
+            document.getElementById('sponsorUploadArea')?.addEventListener('click',()=>sponsorInput?.click());
+            sponsorInput?.addEventListener('change',function(){if(this.files&&this.files[0]){const r=new FileReader();r.onload=e=>{sponsorImage=e.target.result;sponsorPreview.src=sponsorImage;sponsorPreview.style.display='block';};r.readAsDataURL(this.files[0]);}});
+            document.getElementById('saveProfileBtn')?.addEventListener('click', () => {
+                saveSchoolProfile({
+                    name: document.getElementById('profileName').value.trim(),
+                    motto: document.getElementById('profileMotto').value.trim(),
+                    phone: document.getElementById('profilePhone').value.trim(),
+                    email: document.getElementById('profileEmail').value.trim(),
+                    address: document.getElementById('profileAddress').value.trim(),
+                    logo: document.getElementById('profileLogo').value.trim(),
+                    sponsorName: document.getElementById('profileSponsorName').value.trim(),
+                    sponsorDescription: document.getElementById('profileSponsorDescription').value.trim(),
+                    sponsorImage
+                });
+                closeModal();
+                renderAdminDashboard();
+            });
+            document.getElementById('cancelProfileBtn')?.addEventListener('click', closeModal);
+        }
+
+        function showCoverSettingsModal() {
+            const html = `
+                        <h3>📝 Cover Settings</h3>
+                        <label>Title</label><input id="coverTitleInput" value="${coverSettings.title}" />
+                        <label>Subtitle</label><input id="coverSubtitleInput" value="${coverSettings.subtitle}" />
+                        <label>Motto</label><input id="coverMottoInput" value="${coverSettings.motto}" />
+                        <label>Description</label><textarea id="coverDescriptionInput">${coverSettings.description}</textarea>
+                        <div class="modal-actions"><button id="saveCoverBtn" class="btn-sm primary">Save</button><button id="cancelCoverBtn" class="btn-sm outline">Cancel</button></div>
+                    `;
+            showModal('Cover Settings', html);
+            document.getElementById('saveCoverBtn')?.addEventListener('click', () => {
+                saveCoverSettings({
+                    title: document.getElementById('coverTitleInput').value.trim(),
+                    subtitle: document.getElementById('coverSubtitleInput').value.trim(),
+                    motto: document.getElementById('coverMottoInput').value.trim(),
+                    description: document.getElementById('coverDescriptionInput').value.trim()
+                });
+                closeModal();
+                renderAdminDashboard();
+            });
+            document.getElementById('cancelCoverBtn')?.addEventListener('click', closeModal);
+        }
+
+        function showCarouselModal() {
+            let html =
+                `<h3>🖼️ Carousel Images</h3><p style="color:var(--text-secondary);">Manage slides shown on the cover page.</p><div style="margin:12px 0;display:flex;gap:12px;flex-wrap:wrap;"><button id="addCarouselBtn" class="btn-sm primary"><i class="fas fa-plus"></i> Add Slide</button><button id="refreshCarouselBtn" class="btn-sm outline"><i class="fas fa-sync-alt"></i> Refresh</button></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;">`;
+            if (carouselImages.length === 0) html +=
+                `<div style="grid-column:1/-1;text-align:center;color:var(--text-secondary);">No slides.</div>`;
+            carouselImages.forEach(img => {
+                html +=
+                    `<div style="border-radius:16px;overflow:hidden;border:1px solid var(--border-color);position:relative;"><img src="${img.dataUrl}" alt="${img.label}" style="width:100%;height:120px;object-fit:cover;display:block;" /><div style="padding:8px 12px;font-size:0.8rem;">${img.label}</div><button class="carousel-delete-btn" data-id="${img.id}" style="position:absolute;top:8px;right:8px;background:rgba(192,57,43,0.85);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;"><i class="fas fa-trash"></i></button></div>`;
+            });
+            html += `</div>`;
+            showModal('Carousel Manager', html);
+            document.querySelectorAll('.carousel-delete-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = this.dataset.id;
+                    if (confirm('Delete this slide?')) {
+                        carouselImages = carouselImages.filter(img => img.id !== id);
+                        saveCarouselImages();
+                        renderCarousel();
+                        showCarouselModal();
+                    }
+                });
+            });
+            document.getElementById('addCarouselBtn')?.addEventListener('click', () => {
+                let uploadedDataUrl = null;
+                const html2 = `
+                            <h3>➕ Add Carousel Slide</h3>
+                            <label>Label</label><input id="carouselLabel" placeholder="e.g., School Campus" />
+                            <label>Image</label>
+                            <div class="image-upload-area" id="carouselUploadArea">
+                                <input type="file" id="carouselImageInput" accept="image/*" />
+                                <span class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></span>
+                                <span class="upload-text">Click to upload an image</span>
+                            </div>
+                            <img id="carouselImagePreview" class="image-upload-preview" style="display:none;" alt="Preview" />
+                            <div class="modal-actions"><button id="saveCarouselSlideBtn" class="btn-sm primary">Add</button><button id="cancelCarouselSlideBtn" class="btn-sm outline">Cancel</button></div>
+                        `;
+                showModal('Add Carousel Slide', html2);
+                setTimeout(() => {
+                    const fileInput = document.getElementById('carouselImageInput');
+                    const preview = document.getElementById('carouselImagePreview');
+                    const uploadArea = document.getElementById('carouselUploadArea');
+                    fileInput?.addEventListener('change', function(e) {
+                        if (this.files && this.files[0]) {
+                            const reader = new FileReader();
+                            reader.onload = function(ev) { uploadedDataUrl = ev.target.result;
+                                preview.src = ev.target.result;
+                                preview.style.display = 'block'; };
+                            reader.readAsDataURL(this.files[0]);
+                        }
+                    });
+                    uploadArea?.addEventListener('click', () => fileInput?.click());
+                    document.getElementById('saveCarouselSlideBtn')?.addEventListener('click', () => {
+                        const label = document.getElementById('carouselLabel').value.trim() || 'Slide';
+                        if (!uploadedDataUrl) { alert('Please upload an image.'); return; }
+                        carouselImages.push({ id: generateId(), label, dataUrl: uploadedDataUrl });
+                        saveCarouselImages();
+                        renderCarousel();
+                        closeModal();
+                        showCarouselModal();
+                    });
+                    document.getElementById('cancelCarouselSlideBtn')?.addEventListener('click', closeModal);
+                }, 50);
+            });
+            document.getElementById('refreshCarouselBtn')?.addEventListener('click', () => { closeModal();
+                showCarouselModal(); });
+        }
+
+        function renderParentGalleryView(){
+            const sorted=[...galleryImages].sort((a,b)=>new Date(b.date)-new Date(a.date));
+            mainContent.innerHTML=`<div class="card"><h3>📸 School Gallery</h3><p style="color:var(--text-secondary);">School activities, events, sports and memories.</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:18px;">${sorted.map(img=>`<div style="border:1px solid var(--border-color);border-radius:16px;overflow:hidden;"><img src="${img.dataUrl}" alt="${img.caption}" style="width:100%;height:180px;object-fit:cover;"><div style="padding:10px 14px;"><strong>${img.caption}</strong><div style="font-size:.75rem;color:var(--text-secondary);">${img.date||''}</div></div></div>`).join('')||'<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-secondary);">No gallery images yet.</div>'}</div></div>`;
+        }
+
+        function saveStaff(){localStorage.setItem('nyangwa_staff',JSON.stringify(staff));}
+        function renderStaffManagementPage(){
+            let html=`<div class="card"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;"><div><h3>👨‍🏫 Staff Members</h3><p style="color:var(--text-secondary);">Admin can add staff, set private login credentials and upload profile photos.</p></div><button id="addStaffBtn" class="btn-sm primary"><i class="fas fa-user-plus"></i> Add Staff</button></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;margin-top:18px;">`;
+            if(!staff.length)html+=`<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-secondary);">No staff members yet.</div>`;
+            staff.forEach(m=>html+=`<div class="card" style="margin:0;text-align:center;"><img src="${m.photo||schoolProfile.logo}" style="width:92px;height:92px;border-radius:50%;object-fit:cover;border:3px solid var(--accent-gold);"><h4 style="margin-top:10px;">${m.name}</h4><p style="font-size:.8rem;color:var(--text-secondary);">${m.role||'Staff'} · ${m.username}</p><button class="btn-sm danger delete-staff-btn" data-id="${m.id}" style="margin-top:10px;">Delete</button></div>`);
+            html+=`</div></div>`;mainContent.innerHTML=html;
+            document.getElementById('addStaffBtn')?.addEventListener('click',showAddStaffModal);
+            document.querySelectorAll('.delete-staff-btn').forEach(b=>b.addEventListener('click',()=>{if(confirm('Delete this staff member?')){staff=staff.filter(x=>x.id!==b.dataset.id);saveStaff();renderStaffManagementPage();}}));
+        }
+        function showAddStaffModal(){
+            let photo='';const html=`<h3>➕ Add Staff Member</h3><label>Full Name</label><input id="staffName"><label>Username</label><input id="staffUsername"><label>Private Password</label><input id="staffPassword" type="password"><label>Role/Position</label><input id="staffRole" placeholder="Teacher / Deputy / Secretary"><label>Profile Photo</label><div class="image-upload-area" id="staffUploadArea"><input type="file" id="staffPhotoInput" accept="image/*"><span class="upload-icon"><i class="fas fa-camera"></i></span><span class="upload-text">Upload profile photo</span></div><img id="staffPhotoPreview" class="image-upload-preview" style="display:none;max-height:220px;"><div class="modal-actions"><button id="saveStaffBtn" class="btn-sm primary">Create Staff</button><button id="cancelStaffBtn" class="btn-sm outline">Cancel</button></div>`;
+            showModal('Add Staff',html);const input=document.getElementById('staffPhotoInput'),preview=document.getElementById('staffPhotoPreview');document.getElementById('staffUploadArea')?.addEventListener('click',()=>input?.click());input?.addEventListener('change',function(){if(this.files&&this.files[0]){const r=new FileReader();r.onload=e=>{photo=e.target.result;preview.src=photo;preview.style.display='block';};r.readAsDataURL(this.files[0]);}});
+            document.getElementById('saveStaffBtn')?.addEventListener('click',()=>{const name=document.getElementById('staffName').value.trim(),username=document.getElementById('staffUsername').value.trim(),password=document.getElementById('staffPassword').value.trim();if(!name||!username||!password){alert('Name, username and password are required.');return;}if(staff.some(x=>x.username.toLowerCase()===username.toLowerCase())){alert('Username already exists.');return;}staff.push({id:generateId(),name,username,password,role:document.getElementById('staffRole').value.trim()||'Staff',photo});saveStaff();closeModal();renderStaffManagementPage();});document.getElementById('cancelStaffBtn')?.addEventListener('click',closeModal);
+        }
+
+        // ─── NAVIGATION ──────────────────────────────────────────────────────
+        function buildNavigation() {
+            let items = [];
+            if (currentRole === 'student') {
+                items = [{ id: 'dashboard', label: '📊 Dashboard', icon: 'fa-chart-simple' }];
+            } else if (currentRole === 'parent') {
+                items = [{ id: 'dashboard', label: '👨‍👩‍👦 Dashboard', icon: 'fa-home' }, { id: 'parentGallery', label: '📸 School Gallery', icon: 'fa-images' }];
+            } else if (currentRole === 'staff') {
+                items = [{ id: 'dashboard', label: '📊 Staff Dashboard', icon: 'fa-chart-simple' }];
+            } else if (currentRole === 'admin') {
+                items = [
+                    { id: 'dashboard', label: '📊 Admin Dashboard', icon: 'fa-chart-simple' },
+                    { id: 'gallery', label: '📸 Gallery', icon: 'fa-images' },
+                    { id: 'associations', label: '🤝 Associations', icon: 'fa-handshake' },
+                    { id: 'clubs', label: '🏕️ Clubs', icon: 'fa-users' },
+                    { id: 'staff', label: '👨‍🏫 Staff', icon: 'fa-user-tie' },
+                    { id: 'subjects', label: '📚 Subjects', icon: 'fa-book' },
+                    { id: 'profile', label: '🏫 School Profile', icon: 'fa-school' },
+                    { id: 'settings', label: '⚙️ Settings', icon: 'fa-cog' }
+                ];
+            }
+            dynamicNav.innerHTML = '';
+            items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = `nav-item ${item.id === 'dashboard' ? 'active' : ''}`;
+                div.dataset.page = item.id;
+                div.innerHTML = `<i class="fas ${item.icon}"></i> ${item.label}`;
+                div.addEventListener('click', () => {
+                    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                    div.classList.add('active');
+                    navigateTo(item.id);
+                });
+                dynamicNav.appendChild(div);
+            });
+        }
+
+        function navigateTo(page) {
+            if (page === 'dashboard') {
+                if (currentRole === 'student') renderStudentDashboard();
+                else if (currentRole === 'parent') renderParentDashboard();
+                else if (currentRole === 'staff') renderStaffDashboard();
+                else if (currentRole === 'admin') renderAdminDashboard();
+            } else if (page === 'parentGallery' && currentRole === 'parent') {
+                renderParentGalleryView();
+            } else if (page === 'gallery' && currentRole === 'admin') {
+                renderAdminGalleryView();
+            } else if (page === 'associations' && currentRole === 'admin') {
+                renderAssociationsPage();
+            } else if (page === 'clubs' && currentRole === 'admin') {
+                renderClubsPage();
+            } else if (page === 'staff' && currentRole === 'admin') {
+                renderStaffManagementPage();
+            } else if (page === 'subjects' && currentRole === 'admin') {
+                showManageSubjectsModal();
+            } else if (page === 'profile' && currentRole === 'admin') {
+                showSchoolProfileModal();
+            } else if (page === 'settings' && currentRole === 'admin') {
+                let html =
+                    `<div class="card"><h3>⚙️ Admin Settings</h3><button id="changeAdminPassBtn" class="btn-sm primary"><i class="fas fa-key"></i> Change Admin Password</button><button id="resetDataBtn" class="btn-sm danger" style="margin-left:12px;"><i class="fas fa-database"></i> Reset All Data</button></div>`;
+                mainContent.innerHTML = html;
+                document.getElementById('changeAdminPassBtn')?.addEventListener('click', () => {
+                    const html2 =
+                        `<h3>🔑 Change Admin Password</h3><label>New Password</label><input type="password" id="newAdminPass" placeholder="Enter new password" /><div class="modal-actions"><button id="saveAdminPassBtn" class="btn-sm primary">Save</button><button id="cancelAdminPassBtn" class="btn-sm outline">Cancel</button></div>`;
+                    showModal('Change Admin Password', html2);
+                    document.getElementById('saveAdminPassBtn')?.addEventListener('click', () => {
+                        const pass = document.getElementById('newAdminPass').value.trim();
+                        if (!pass || pass.length < 6) { alert('Password must be at least 6 characters.');
+                            return; }
+                        adminCredentials.password = pass;
+                        localStorage.setItem("nyangwa_admin_creds", JSON.stringify(adminCredentials));
+                        alert('Password updated successfully.');
+                        closeModal();
+                    });
+                    document.getElementById('cancelAdminPassBtn')?.addEventListener('click', closeModal);
+                });
+                document.getElementById('resetDataBtn')?.addEventListener('click', () => {
+                    if (confirm('⚠️ This will reset ALL data to default. Are you sure?')) {
+                        localStorage.clear();
+                        location.reload();
+                    }
+                });
+            }
+        }
+
+        // ─── LOGIN / LOGOUT ──────────────────────────────────────────────────
+        function handleLogin() {
+            const username = document.getElementById('loginUsername').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            const role = document.querySelector('input[name="loginRole"]:checked').value;
+
+            if (role === 'admin') {
+                if (!adminCredentials.username || !adminCredentials.password) {
+                    if (!username || !password) { alert('First-time setup: enter a new administrator username and password.'); return; }
+                    adminCredentials={username,password}; localStorage.setItem('nyangwa_admin_creds',JSON.stringify(adminCredentials)); currentRole='admin'; currentUser={data:{username,name:'Administrator'}}; enterDashboard(); return;
+                }
+                if (verifyAdminLogin(username, password)) {
+                    currentRole = 'admin';
+                    currentUser = { data: { username: adminCredentials.username, name: 'Administrator' } };
+                    enterDashboard();
+                    return;
+                } else { alert('Invalid admin credentials.'); return; }
+            }
+
+            if (role === 'student') {
+                const student = students.find(s => s.id === username);
+                if (student) {
+                    currentRole = 'student';
+                    currentUser = { data: student };
+                    enterDashboard();
+                    return;
+                } else { alert('Student not found. Check ID.'); return; }
+            }
+
+            if (role === 'parent') {
+                const parent = findParentByUsername(username);
+                if (parent && !parent.password) { if(!password){alert('Set a private password for this parent account.');return;} parent.password=password; localStorage.setItem('nyangwa_parents',JSON.stringify(parents)); }
+                if (parent && parent.password === password) {
+                    currentRole = 'parent';
+                    currentUser = { data: parent };
+                    enterDashboard();
+                    return;
+                } else { alert('Invalid parent credentials.'); return; }
+            }
+
+            if (role === 'staff') {
+                const staffMember = findStaffByUsername(username);
+                if (staffMember && staffMember.password === password) {
+                    currentRole = 'staff';
+                    currentUser = { data: staffMember };
+                    enterDashboard();
+                    return;
+                } else { alert('Invalid staff credentials.'); return; }
+            }
+
+            alert('Login failed. Please check your credentials and role.');
+        }
+
+        function enterDashboard() {
+            document.getElementById('coverPage').classList.add('hidden');
+            document.getElementById('loginContainer').style.display = 'none';
+            dashboardContainer.style.display = 'block';
+            buildNavigation();
+            navigateTo('dashboard');
+        }
+
+        function handleLogout() {
+            currentUser = null;
+            currentRole = null;
+            dashboardContainer.style.display = 'none';
+            document.getElementById('coverPage').classList.remove('hidden');
+            document.getElementById('loginContainer').style.display = 'flex';
+            document.getElementById('loginUsername').value = '';
+            document.getElementById('loginPassword').value = '';
+        }
+
+        // ─── INIT ─────────────────────────────────────────────────────────────
+        function init() {
+            loadCurrentTerm();
+            loadGradingSystems();
+            loadStudents();
+            loadParents();
+            loadStaff();
+            loadSubjects();
+            loadCoverSections();
+            loadCoverSettings();
+            loadCarouselImages();
+            loadGalleryImages();
+            loadAssociations();
+            loadClubs();
+            loadSchoolProfile();
+            loadAdminCredentials();
+
+            renderCarousel();
+            renderCoverSections();
+            renderAssociationsCover();
+            renderClubsCover();
+            renderCoverGallery();
+
+            document.getElementById('enterPortalBtn').addEventListener('click', () => {
+                document.getElementById('coverPage').classList.add('hidden');
+                document.getElementById('loginContainer').style.display = 'flex';
+            });
+
+            signinBtn.addEventListener('click', handleLogin);
+            document.addEventListener('keydown', (e) => { if (e.key === 'Enter') handleLogin(); });
+
+            logoutBtn.addEventListener('click', handleLogout);
+
+            document.getElementById('addGalleryImageBtn')?.addEventListener('click', showAddGalleryImageModal);
+            document.getElementById('refreshGalleryBtn')?.addEventListener('click', renderCoverGallery);
+
+            if (document.body.classList.contains('dark-mode')) {
+                document.querySelector('#toggleTheme i').className = 'fas fa-sun';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
